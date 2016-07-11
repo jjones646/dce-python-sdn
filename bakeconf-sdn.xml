@@ -532,7 +532,7 @@
       </source>
       <build type="autotools" objdir="yes">
 	<attribute name="configure_arguments" value="../configure --prefix=$INSTALLDIR --exec-prefix=$INSTALLDIR -enable-userlevel --disable-linuxmodule --enable-nsclick --enable-wifi"/>
-	<attribute name="post_installation" value="mkdir $INSTALLDIR/lib; cp -r $OBJDIR/include $INSTALLDIR/lib/."/> 
+	<attribute name="post_installation" value="mkdir $INSTALLDIR/lib; cp -r $OBJDIR/include $INSTALLDIR/lib/."/>
       </build>
     </module>
 
@@ -543,7 +543,7 @@
       </source>
       <build type="autotools" objdir="yes">
 	<attribute name="configure_arguments" value="../configure --prefix=$INSTALLDIR --exec-prefix=$INSTALLDIR -enable-userlevel --disable-linuxmodule --enable-nsclick --enable-wifi"/>
-	<attribute name="post_installation" value="mkdir $INSTALLDIR/lib; cp -r $OBJDIR/include $INSTALLDIR/lib/."/> 
+	<attribute name="post_installation" value="mkdir $INSTALLDIR/lib; cp -r $OBJDIR/include $INSTALLDIR/lib/."/>
       </build>
     </module>
 
@@ -554,7 +554,7 @@
       </source>
       <build type="autotools" objdir="yes">
 	<attribute name="configure_arguments" value="../configure --prefix=$INSTALLDIR --exec-prefix=$INSTALLDIR -enable-userlevel --disable-linuxmodule --enable-nsclick --enable-wifi"/>
-	<attribute name="post_installation" value="mkdir $INSTALLDIR/lib; cp -r $OBJDIR/include $INSTALLDIR/lib/."/> 
+	<attribute name="post_installation" value="mkdir $INSTALLDIR/lib; cp -r $OBJDIR/include $INSTALLDIR/lib/."/>
       </build>
     </module>
 
@@ -566,8 +566,8 @@
       </source>
       <build type="autotools" objdir="yes">
 	<attribute name="configure_arguments" value="../configure -enable-userlevel --disable-linuxmodule --enable-nsclick --enable-wifi"/>
-	<!--	<attribute name="post_installation" value="mkdir $INSTALLDIR/lib; cp -r $OBJDIR/include $INSTALLDIR/lib/.; cp -r $SRCDIR/include $INSTALLDIR/lib"/> 
-	--> 
+	<!--	<attribute name="post_installation" value="mkdir $INSTALLDIR/lib; cp -r $OBJDIR/include $INSTALLDIR/lib/.; cp -r $SRCDIR/include $INSTALLDIR/lib"/>
+	-->
       </build>
     </module>
 
@@ -592,9 +592,9 @@
 	<attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR"/>
 	<attribute name="no_installation" value="True"/>
 
-        <!-- It complains if the lib directory exists, so I am removing the lib directory. Another 
+        <!-- It complains if the lib directory exists, so I am removing the lib directory. Another
              thing is that it try to install things by default, so the instalation is not required-->
-        
+
 	<attribute name="pre_installation" value="mv $INSTALLDIR/lib $INSTALLDIR/libTmp"/>
 	<attribute name="post_installation" value="mkdir $INSTALLDIR/lib; mv $INSTALLDIR/libTmp/* $INSTALLDIR/lib/.; rm -rf $INSTALLDIR/libTmp" />
       </build>
@@ -668,7 +668,7 @@
         <attribute name="try_to_install" value="False"/>
         <attribute name="name_apt-get" value="python-pygraphviz"/>
         <attribute name="name_yum" value="graphviz-python"/>
-        <attribute name="name_yum" value="py27-pygraphviz"/> 
+        <attribute name="name_yum" value="py27-pygraphviz"/>
         <attribute name="more_information" value="The pygraphviz is not installed, try to install it."/>
       </source>
       <build type="none" objdir="no">
@@ -896,7 +896,7 @@
         jobstr=[]
         if not jobs == -1:
             jobstr = ['-j', str(jobs)]
-        env.run(['python', os.path.join(env.srcdir, 'scons.py'), 
+        env.run(['python', os.path.join(env.srcdir, 'scons.py'),
                  'prefix=' + env.installdir, 'install'] + jobstr,
                 directory=env.srcdir )
         srcLib = os.path.join(env.srcdir, 'lib')
@@ -907,7 +907,7 @@
                  shutil.copy2(os.path.join(srcLib, file), destination)
              except Exception as e:
                  print ("   > Error executing copy : " + str(e) + "\n")
-       
+
     def clean(self, env):
         env.run(['python', os.path.join(env.srcdir, 'scons.py'), '-c'],
                 directory=env.srcdir)
@@ -915,7 +915,7 @@
         return True</code>
       </build>
     </module>
-    
+
    <module name="nsc-0.5.3">
       <source type="mercurial">
 	<attribute name="url" value="https://secure.wand.net.nz/mercurial/nsc"/>
@@ -951,7 +951,7 @@
                  shutil.copy2(os.path.join(srcLib, file), destination)
              except Exception as e:
                  print ("   > Error executing copy : " + str(e) + "\n")
-       
+
     def clean(self, env):
         env.run(['python', os.path.join(env.srcdir, 'scons.py'), '-c'],
                 directory=env.srcdir)
@@ -1955,7 +1955,7 @@
 </source>
 <build type="waf">
 <attribute name="CXXFLAGS" value="" />
-<attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --enable-examples --enable-tests --enable-mpi --enable-sdn" />
+<attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --with-ofswitch13=$INSTALLDIR --enable-examples --enable-tests --enable-mpi --enable-sdn" />
 <attribute name="v_LD_LIBRARY" value="" />
 <attribute name="LDFLAGS" value="" />
 <attribute name="CC" value="" />
@@ -2068,7 +2068,7 @@
       <depends_on name="bash" optional="True"/>
       <build type="waf" objdir="build">
         <attribute name="supported_os" value="linux;linux2"/>
-        <attribute name="configure_arguments" value="configure --enable-mpi --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --with-libaspect=$INSTALLDIR --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch --prefix=$INSTALLDIR"/>
+        <attribute name="configure_arguments" value="configure --enable-mpi --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --with-libaspect=$INSTALLDIR --with-ofswitch13=$INSTALLDIR --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch --prefix=$INSTALLDIR"/>
         <attribute name="post_installation" value="mkdir $SRCDIR/files-0 ; ln -s $INSTALLDIR/lib/python2.7 $SRCDIR/files-0/ ; cp -r $SRCDIR/../pox $SRCDIR/files-0/ ; cp $SRCDIR/../ryu/bin/ryu-manager $SRCDIR/files-0/ ; cp -r $SRCDIR/../ryu/ryu $SRCDIR/files-0/; cp -r $SRCDIR/../ryu/etc $SRCDIR/files-0/ ; ln -s $INSTALLDIR/jvm/openjdk-1.8.0-internal $SRCDIR/files-0/ ; mkdir $SRCDIR/files-0/dummies ; cp -r $SRCDIR/myscripts/python/proc $SRCDIR/files-0/ ; cd $SRCDIR/myscripts/python/testscripts ; javac PiDigits.java ; cp PiDigits.class $SRCDIR/files-0/ "/>
       </build>
     </module>
@@ -2100,7 +2100,7 @@
       <depends_on name="bash" optional="True"/>
       <build type="waf" objdir="build">
         <attribute name="supported_os" value="linux;linux2"/>
-        <attribute name="configure_arguments" value="configure --enable-mpi --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --with-libaspect=$INSTALLDIR --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch --prefix=$INSTALLDIR"/>
+        <attribute name="configure_arguments" value="configure --enable-mpi --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --with-libaspect=$INSTALLDIR --with-ofswitch13=$INSTALLDIR --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch --prefix=$INSTALLDIR"/>
         <attribute name="post_installation" value="mkdir $SRCDIR/files-0 ; ln -s $INSTALLDIR/lib/python2.7 $SRCDIR/files-0/ ; cp -r $SRCDIR/../pox $SRCDIR/files-0/ ; cp $SRCDIR/../ryu/bin/ryu-manager $SRCDIR/files-0/ ; cp -r $SRCDIR/../ryu/ryu $SRCDIR/files-0/; cp -r $SRCDIR/../ryu/etc $SRCDIR/files-0/ ; ln -s $INSTALLDIR/jvm/openjdk-1.8.0-internal $SRCDIR/files-0/ ; mkdir $SRCDIR/files-0/dummies ; cp -r $SRCDIR/myscripts/python/proc $SRCDIR/files-0/ ; cd $SRCDIR/myscripts/python/testscripts ; javac PiDigits.java ; cp PiDigits.class $SRCDIR/files-0/ ; echo '00000000000000000000000000000000' >> $SRCDIR/files-0/key.txt ; echo 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. (Filling up enough extra space to make the file a multiple of 16)' >> $SRCDIR/files-0/hello.txt ; mkdir files-1 ; echo '00000000000000000000000000000000' >> $SRCDIR/files-1/key.txt"/>
       </build>
     </module>
@@ -2137,7 +2137,7 @@
       <depends_on name="gvirtus" optional="False"/>
       <build type="autotools" objdir="no">
 	<attribute name="configure_arguments" value="./configure 'CPPFLAGS=-I$SRCDIR/util -isystem /usr/local/cuda/include -I$INSTALLDIR/include/gvirtus' 'LDFLAGS=-pthread -L/usr/local/cuda/lib -L/usr/local/cuda/lib64 -L$INSTALLDIR/lib' --exec-prefix=$INSTALLDIR --prefix=$INSTALLDIR
-"/> 
+"/>
       </build>
     </module>
 
@@ -2149,7 +2149,7 @@
       <depends_on name="gvirtus" optional="False"/>
       <build type="autotools" objdir="no">
 	<attribute name="configure_arguments" value="./configure 'CPPFLAGS=-I$SRCDIR/util -isystem /usr/local/cuda/include -I$INSTALLDIR/include/gvirtus' 'LDFLAGS=-pthread -L/usr/local/cuda/lib -L/usr/local/cuda/lib64 -L$INSTALLDIR/lib' --exec-prefix=$INSTALLDIR --prefix=$INSTALLDIR
-"/> 
+"/>
       </build>
     </module>
 
@@ -2365,7 +2365,7 @@
 <!--  Bake dependencies end -->
 
   </modules>
- 
+
   <predefined name="set-bake-env">
       <enable name="mercurial"/>
       <enable name="subversion"/>
@@ -2398,7 +2398,7 @@
     <append name="CFLAGS" value="-O3"/>
     <append name="CXXFLAGS" value="-O3"/>
   </predefined>
-  
+
   <predefined name="ns3">
     <enable name="ns-3-dev"/>
     <!--    <configuration installdir="." sourcedir="../source"/> -->
