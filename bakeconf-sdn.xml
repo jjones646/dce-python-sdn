@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <configuration>
   <modules>
     <module name="dce-meta-dev">
@@ -410,7 +409,27 @@
       <build type="inline"  classname="IputilsModuleBuild">
         <attribute name="patch" value="$SRCDIR/../ns-3-dce/myscripts/ns-3-dce-quagga/utils/iputils-ping6.patch"/>
         <attribute name="supported_os" value="linux;linux2"/>
-        <code>class IputilsModuleBuild(InlineModuleBuild):    def __init__(self):        InlineModuleBuild.__init__(self)    def build(self, env, jobs):           if self.attribute('patch').value != '':               self.threat_patch(env, self.attribute('patch').value)           jobstr=[]           if not jobs == -1:               jobstr = ['-j', str(jobs)]           env.run(['make', 'CFLAGS=-fpic', 'CFLAGS+=-D_GNU_SOURCE', 'CFLAGS+=-g',           'CFLAGS+=-Wstrict-prototypes', 'CFLAGS+=-Wall', 'LDFLAGS=-pie', 'LDFLAGS+=-rdynamic',           'ping', 'ping6'] + jobstr,           directory=env.srcdir)           env.run(['mkdir', '-p' , env.installdir + '/bin_dce/'],           directory=env.srcdir)           env.run(['cp', 'ping', 'ping6', env.installdir + '/bin_dce'],           directory=env.srcdir)    def clean(self, env):           env.run(['make', 'clean'], directory=env.srcdir)    def check_version(self, env):           return True</code>
+        <code>class IputilsModuleBuild(InlineModuleBuild):
+   def __init__(self):
+       InlineModuleBuild.__init__(self)
+   def build(self, env, jobs):
+          if self.attribute('patch').value != '':
+              self.threat_patch(env, self.attribute('patch').value)
+          jobstr=[]
+          if not jobs == -1:
+              jobstr = ['-j', str(jobs)]
+          env.run(['make', 'CFLAGS=-fpic', 'CFLAGS+=-D_GNU_SOURCE', 'CFLAGS+=-g',
+          'CFLAGS+=-Wstrict-prototypes', 'CFLAGS+=-Wall', 'LDFLAGS=-pie', 'LDFLAGS+=-rdynamic',
+          'ping', 'ping6'] + jobstr,
+          directory=env.srcdir)
+          env.run(['mkdir', '-p' , env.installdir + '/bin_dce/'],
+          directory=env.srcdir)
+          env.run(['cp', 'ping', 'ping6', env.installdir + '/bin_dce'],
+          directory=env.srcdir)
+   def clean(self, env):
+          env.run(['make', 'clean'], directory=env.srcdir)
+   def check_version(self, env):
+          return True</code>
       </build>
     </module>
     <!-- umip related modules -->
@@ -821,7 +840,33 @@
       <!-- problem: scons has no generic command-line support for builddir and installdir -->
       <build type="inline"  classname="NscModuleBuild">
         <attribute name="supported_os" value="linux;linux2"/>
-        <code>class NscModuleBuild(InlineModuleBuild):    def __init__(self):        InlineModuleBuild.__init__(self)    def build(self, env, jobs):        import os        import shutil        jobstr=[]        if not jobs == -1:            jobstr = ['-j', str(jobs)]        env.run(['python', os.path.join(env.srcdir, 'scons.py'),                 'prefix=' + env.installdir, 'install'] + jobstr,                directory=env.srcdir )        srcLib = os.path.join(env.srcdir, 'lib')        files = os.listdir(srcLib)        destination = os.path.join(env.installdir, 'lib')        for file in files:             try:                 shutil.copy2(os.path.join(srcLib, file), destination)             except Exception as e:                 print ("   > Error executing copy : " + str(e) + "\n")    def clean(self, env):        env.run(['python', os.path.join(env.srcdir, 'scons.py'), '-c'],                directory=env.srcdir)    def check_version(self, env):        return True</code>
+        <code>class NscModuleBuild(InlineModuleBuild):
+          def __init__(self):
+              InlineModuleBuild.__init__(self)
+          def build(self, env, jobs):
+              import os
+              import shutil
+
+              jobstr=[]
+              if not jobs == -1:
+                  jobstr = ['-j', str(jobs)]
+              env.run(['python', os.path.join(env.srcdir, 'scons.py'),
+                       'prefix=' + env.installdir, 'install'] + jobstr,
+                      directory=env.srcdir )
+              srcLib = os.path.join(env.srcdir, 'lib')
+              files = os.listdir(srcLib)
+              destination = os.path.join(env.installdir, 'lib')
+              for file in files:
+                   try:
+                       shutil.copy2(os.path.join(srcLib, file), destination)
+                   except Exception as e:
+                       print ("   > Error executing copy : " + str(e) + "\n")
+
+          def clean(self, env):
+              env.run(['python', os.path.join(env.srcdir, 'scons.py'), '-c'],
+                      directory=env.srcdir)
+          def check_version(self, env):
+              return True</code>
       </build>
     </module>
     <module name="nsc-0.5.3">
@@ -832,7 +877,39 @@
       <!-- problem: scons has no generic command-line support for builddir and installdir -->
       <build type="inline"  classname="NscModuleBuild">
         <attribute name="supported_os" value="linux;linux2"/>
-        <code>class NscModuleBuild(InlineModuleBuild):    def __init__(self):        InlineModuleBuild.__init__(self)    def build(self, env, jobs):        import os        import shutil        jobstr=[]        if not jobs == -1:            jobstr = ['-j', str(jobs)]        env.run(['python', os.path.join(env.srcdir, 'scons.py'),                 'prefix=' + env.installdir, 'install'] + jobstr,                directory=env.srcdir )        srcLib = os.path.join(env.srcdir, 'lib')        env._logger.commands.write("LibDir: " + srcLib +"\n")        destination = os.path.join(env.installdir, 'lib')        env._logger.commands.write("DstDir: " + destination +"\n")	if not os.path.exists(destination):    		os.makedirs(destination)        files = os.listdir(srcLib)        env._logger.commands.write("Files:"+str(files)+"\n")        for file in files:             env._logger.commands.write(file + "->" + destination +"\n")             try:                 shutil.copy2(os.path.join(srcLib, file), destination)             except Exception as e:                 print ("   > Error executing copy : " + str(e) + "\n")    def clean(self, env):        env.run(['python', os.path.join(env.srcdir, 'scons.py'), '-c'],                directory=env.srcdir)    def check_version(self, env):        return True</code>
+        <code>class NscModuleBuild(InlineModuleBuild):
+          def __init__(self):
+              InlineModuleBuild.__init__(self)
+          def build(self, env, jobs):
+              import os
+              import shutil
+
+              jobstr=[]
+              if not jobs == -1:
+                  jobstr = ['-j', str(jobs)]
+              env.run(['python', os.path.join(env.srcdir, 'scons.py'),
+                       'prefix=' + env.installdir, 'install'] + jobstr,
+                      directory=env.srcdir )
+              srcLib = os.path.join(env.srcdir, 'lib')
+              env._logger.commands.write("LibDir: " + srcLib +"\n")
+              destination = os.path.join(env.installdir, 'lib')
+              env._logger.commands.write("DstDir: " + destination +"\n")
+      	      if not os.path.exists(destination):
+          		    os.makedirs(destination)
+              files = os.listdir(srcLib)
+              env._logger.commands.write("Files:"+str(files)+"\n")
+              for file in files:
+                   env._logger.commands.write(file + "->" + destination +"\n")
+                   try:
+                       shutil.copy2(os.path.join(srcLib, file), destination)
+                   except Exception as e:
+                       print ("   > Error executing copy : " + str(e) + "\n")
+
+          def clean(self, env):
+              env.run(['python', os.path.join(env.srcdir, 'scons.py'), '-c'],
+                      directory=env.srcdir)
+          def check_version(self, env):
+              return True</code>
       </build>
     </module>
     <module name="qt4">
@@ -1855,18 +1932,11 @@
     <module name="netbee">
       <source type="git">
         <attribute name="url" value="https://github.com/jjones646/netbee.git"/>
-        <!-- <attribute name="module_directory" value="ns-3-dce"/> -->
+        <attribute name="module_directory" value="netbee"/>
       </source>
-      <depends_on name="g++" optional="False"/>
-      <depends_on name="cmake" optional="False"/>
-      <depends_on name="libpcap-dev" optional="False"/>
-      <depends_on name="libpcre3-dev" optional="False"/>
-      <!-- <depends_on name="libboost-dev" optional="False"/> -->
-      <depends_on name="flex" optional="False"/>
-      <depends_on name="bison" optional="False"/>
-      <build type="make">
+      <build type="make" objdir="no">
         <attribute name="CXXFLAGS" value="" />
-        <attribute name="build_arguments" value="-j" />
+        <attribute name="build_arguments" value="" />
         <attribute name="v_LD_LIBRARY" value="" />
         <attribute name="LDFLAGS" value="" />
         <attribute name="ignore_predefined_flags" value="False" />
@@ -1883,6 +1953,12 @@
         <attribute name="install_arguments" value="" />
         <attribute name="v_PKG_CONFIG" value="" />
       </build>
+      <depends_on name="g++" optional="False"/>
+      <depends_on name="cmake" optional="False"/>
+      <depends_on name="libpcap-dev" optional="False"/>
+      <depends_on name="libpcre3-dev" optional="False"/>
+      <depends_on name="flex" optional="False"/>
+      <depends_on name="bison" optional="False"/>
     </module>
     <module name="dce-sdn-1.7">
       <source type="git">

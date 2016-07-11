@@ -1,10 +1,9 @@
 BAKE_CONF := bakeconf-sdn.xml
 
-BAKE_HOME := $(shell pwd)/bake
-BAKE_BIN := $(BAKE_HOME)/bake.py
+export BAKE_HOME := $(shell pwd)/bake
 export PATH := bin:$(PATH)
 export PYTHONPATH := $(PYTHON_PATH):$(BAKE_HOME)
-export BAKE_HOME
+BAKE_BIN := $(BAKE_HOME)/bake.py
 
 
 all: libfluid dce
