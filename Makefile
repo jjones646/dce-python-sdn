@@ -20,3 +20,6 @@ libfluid:
 	sudo -E $(BAKE_BIN) build -vvv
 	rmdir build
 	sudo rm bakefile.xml bakeSetEnv.sh
+
+clean:
+	rm -rf build
