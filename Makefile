@@ -21,5 +21,8 @@ libfluid:
 	rmdir build
 	sudo rm bakefile.xml bakeSetEnv.sh
 
+test:
+	$(BAKE_BIN) check
+
 clean:
 	rm -rf build
