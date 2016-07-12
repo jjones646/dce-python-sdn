@@ -1,5 +1,6 @@
 <configuration>
   <modules>
+
     <module name="dce-meta-dev">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dce/"/>
@@ -15,6 +16,7 @@
       <build type="none">
       </build>
     </module>
+
     <module name="dce-ns3-dev">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dce"/>
@@ -26,6 +28,7 @@
         <attribute name="configure_arguments" value="configure --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --with-libaspect=$INSTALLDIR --prefix=$INSTALLDIR"/>
       </build>
     </module>
+
     <module name="dce-linux-dev">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dce"/>
@@ -40,6 +43,7 @@
         <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --with-libaspect=$INSTALLDIR --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch"/>
       </build>
     </module>
+
     <module name="dce-linux-dev-gcov">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dce"/>
@@ -55,6 +59,7 @@
         <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --with-libaspect=$INSTALLDIR --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch --enable-gcov"/>
       </build>
     </module>
+
     <module name="dce-linux-inkernel">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dce"/>
@@ -69,6 +74,7 @@
         <attribute name="post_installation" value="mkdir -p $INSTALLDIR/bin_dce; cd $INSTALLDIR/bin_dce ; ln -s -f $SRCDIR/../../../../../../liblinux.so"/>
       </build>
     </module>
+
     <module name="mptcp_v0.86">
       <source type="git">
         <attribute name="url" value="git://github.com/multipath-tcp/mptcp"/>
@@ -84,6 +90,7 @@
         <attribute name="post_installation" value="mkdir -p $INSTALLDIR/bin_dce; cd $INSTALLDIR/bin_dce; cp $SRCDIR/libsim-linux3.5.7.so ./libsim-linux3.5.7-mptcp.so; ln -s -f libsim-linux3.5.7-mptcp.so liblinux.so"/>
       </build>
     </module>
+
     <module name="mptcp_v0.87">
       <source type="git">
         <attribute name="url" value="git://github.com/multipath-tcp/mptcp"/>
@@ -99,6 +106,7 @@
         <attribute name="post_installation" value="mkdir -p $INSTALLDIR/bin_dce; cd $INSTALLDIR/bin_dce; cp $SRCDIR/libsim-linux3.10.9.so ./libsim-linux3.10.9-mptcp.so; ln -s -f libsim-linux3.10.9-mptcp.so liblinux.so"/>
       </build>
     </module>
+
     <module name="iproute-mptcp">
       <source type="git">
         <attribute name="url" value="git://github.com/multipath-tcp/iproute-mptcp.git"/>
@@ -119,6 +127,7 @@
         <attribute name="build_arguments" value="CCOPTS+=-fpic CCOPTS+=-D_GNU_SOURCE CCOPTS+=-O0 CCOPTS+=-U_FORTIFY_SOURCE LDFLAGS=-pie LDFLAGS+=-rdynamic DEFINES+=-I$SRCDIR/../mptcp/arch/sim/include/ DEFINES+=-I$SRCDIR/../mptcp/include/uapi/ DEFINES+=-I$SRCDIR/../mptcp/include"/>
       </build>
     </module>
+
     <module name="dce-linux-mptcp">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dce"/>
@@ -133,6 +142,7 @@
         <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --enable-kernel-stack=$SRCDIR/../mptcp/arch"/>
       </build>
     </module>
+
     <module name="libpcap-dev">
       <source type="system_dependency">
         <attribute name="dependency_test" value="pcap.h"/>
@@ -144,6 +154,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="libxerces-c2-dev">
       <source type="system_dependency">
         <attribute name="dependency_test" value="XercesVersion.hpp"/>
@@ -155,6 +166,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="libpcre3-dev">
       <source type="system_dependency">
         <attribute name="dependency_test" value="pcre.h"/>
@@ -166,6 +178,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="libexpat-dev">
       <source type="system_dependency">
         <attribute name="dependency_test" value="expat.h"/>
@@ -177,6 +190,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="ccnx">
       <source type="archive">
         <attribute name="url" value="http://www.ccnx.org/releases/ccnx-0.6.2.tar.gz"/>
@@ -190,6 +204,7 @@
         <attribute name="new_variable" value="INSTALL_BASE=$INSTALLDIR" />
       </build>
     </module>
+
     <module name="iperf">
       <source type="archive">
         <attribute name="url" value="http://iperf.fr/download/iperf_2.0.5/iperf-2.0.5-source.tar.gz"/>
@@ -201,6 +216,7 @@
         <attribute name="build_arguments" value="LDFLAGS=-pie LDFLAGS+=-rdynamic"/>
       </build>
     </module>
+
     <module name="libdb-dev">
       <source type="system_dependency">
         <attribute name="dependency_test" value="db_185.h"/>
@@ -212,6 +228,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="bison">
       <source type="system_dependency">
         <attribute name="dependency_test" value="bison"/>
@@ -223,6 +240,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="flex">
       <source type="system_dependency">
         <attribute name="dependency_test" value="flex"/>
@@ -234,6 +252,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="libsysfs-dev">
       <source type="system_dependency">
         <attribute name="dependency_test" value="libsysfs.h"/>
@@ -245,6 +264,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="libssl-dev">
       <source type="system_dependency">
         <attribute name="dependency_test" value="md5.h"/>
@@ -256,6 +276,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="lksctp-dev">
       <source type="system_dependency">
         <attribute name="dependency_test" value="sctp.h"/>
@@ -267,6 +288,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="iproute-2.6.38">
       <source type="archive">
         <attribute name="url" value="http://www.linuxgrill.com/anonymous/iproute2/NEW-OSDL/iproute2-2.6.38.tar.bz2"/>
@@ -284,6 +306,7 @@
         <attribute name="build_arguments" value="CCOPTS+=-fpic CCOPTS+=-D_GNU_SOURCE CCOPTS+=-O0 CCOPTS+=-U_FORTIFY_SOURCE CCOPTS+=-g LDFLAGS=-pie LDFLAGS+=-rdynamic"/>
       </build>
     </module>
+
     <module name="ns-3-dev-dce">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3.21/"/>
@@ -295,6 +318,7 @@
         <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --enable-tests --enable-examples --enable-mpi"/>
       </build>
     </module>
+
     <module name="net-next-sim-2.6.36">
       <source type="git">
         <attribute name="url" value="https://github.com/thehajime/net-next-sim.git"/>
@@ -310,6 +334,7 @@
         <attribute name="post_installation" value="mkdir -p $INSTALLDIR/bin_dce; cd $INSTALLDIR/bin_dce; cp $SRCDIR/libsim-linux2.6.36.so ./; ln -s -f libsim-linux2.6.36.so liblinux.so"/>
       </build>
     </module>
+
     <module name="net-next-sim-3.4.0">
       <source type="git">
         <attribute name="url" value="https://github.com/thehajime/net-next-sim.git"/>
@@ -324,6 +349,7 @@
         <attribute name="post_installation" value="mkdir -p $INSTALLDIR/bin_dce; cd $INSTALLDIR/bin_dce; cp $SRCDIR/libsim-linux3.4.0.so ./; ln -s -f libsim-linux3.4.0.so liblinux.so"/>
       </build>
     </module>
+
     <module name="net-next-sim-3.7.0">
       <source type="git">
         <attribute name="url" value="https://github.com/thehajime/net-next-sim.git"/>
@@ -338,6 +364,7 @@
         <attribute name="post_installation" value="mkdir -p $INSTALLDIR/bin_dce; cd $INSTALLDIR/bin_dce; cp $SRCDIR/libsim-linux3.7.0.so ./; ln -s -f libsim-linux3.7.0.so liblinux.so"/>
       </build>
     </module>
+
     <module name="dce-freebsd-dev">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dce"/>
@@ -350,6 +377,7 @@
         <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --with-libaspect=$INSTALLDIR --enable-kernel-stack=$SRCDIR/../freebsd-sim/sys"/>
       </build>
     </module>
+
     <module name="freebsd-sim-dev">
       <source type="git">
         <attribute name="url" value="git://github.com/direct-code-execution/freebsd-sim.git"/>
@@ -364,6 +392,7 @@
         <attribute name="post_installation" value="mkdir -p $INSTALLDIR/bin_dce; cd $INSTALLDIR/bin_dce; cp $SRCDIR/libsim-freebsd.git.so ./; ln -s -f libsim-freebsd.git.so libfreebsd.so"/>
       </build>
     </module>
+
     <module name="freebsd-sim-10.0.0">
       <source type="git">
         <attribute name="url" value="git://github.com/direct-code-execution/freebsd-sim.git"/>
@@ -378,6 +407,7 @@
         <attribute name="post_installation" value="mkdir -p $INSTALLDIR/bin_dce; cd $INSTALLDIR/bin_dce; cp $SRCDIR/libsim-freebsd.git.so ./; ln -s -f libsim-freebsd.git.so libfreebsd.so"/>
       </build>
     </module>
+
     <module name="wget">
       <source type="archive">
         <attribute name="url" value="http://ftp.gnu.org/gnu/wget/wget-1.14.tar.gz"/>
@@ -387,6 +417,7 @@
         <attribute name="pre_installation" value="cd $SRCDIR; CFLAGS='-fPIC -g' LDFLAGS='-pie -rdynamic' ./configure --disable-opie --disable-digest --disable-ntlm --disable-largefile --disable-threads --disable-nls --disable-rpath --disable-iri --without-ssl --without-zlib --without-libiconv-prefix --without-libintl-prefix --without-libpth-prefix --without-included-regex --prefix=$INSTALLDIR"/>
       </build>
     </module>
+
     <module name="thttpd">
       <source type="archive">
         <attribute name="url" value="http://www.acme.com/software/thttpd/thttpd-2.25b.tar.gz"/>
@@ -400,6 +431,7 @@
         <attribute name="post_installation" value="cd $SRCDIR; mkdir $INSTALLDIR/bin_dce; /bin/cp -f thttpd  $INSTALLDIR/bin_dce"/>
       </build>
     </module>
+
     <module name="iputils">
       <source type="archive">
         <attribute name="url" value="http://www.skbuff.net/iputils/iputils-s20101006.tar.bz2"/>
@@ -432,6 +464,7 @@
           return True</code>
       </build>
     </module>
+
     <!-- umip related modules -->
     <module name="dce-umip-dev">
       <source type="mercurial">
@@ -446,6 +479,7 @@
         <!-- attribute name="configure_arguments" value="configure -prefix=$INSTALLDIR"/ -->
       </build>
     </module>
+
     <module name="umip">
       <source type="git">
         <attribute name="url" value="git://git.umip.org/umip.git"/>
@@ -459,6 +493,7 @@
         <attribute name="post_installation" value="cd $SRCDIR; mkdir $INSTALLDIR/bin_dce; /bin/cp -f src/mip6d  $INSTALLDIR/bin_dce"/>
       </build>
     </module>
+
     <!-- quagga related modules -->
     <module name="dce-quagga-dev">
       <source type="mercurial">
@@ -473,6 +508,7 @@
         <!-- attribute name="configure_arguments" value="configure -prefix=$INSTALLDIR"/ -->
       </build>
     </module>
+
     <module name="indent">
       <source type="system_dependency">
         <attribute name="dependency_test" value="indent"/>
@@ -484,6 +520,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="gawk">
       <source type="system_dependency">
         <attribute name="dependency_test" value="gawk"/>
@@ -495,6 +532,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="quagga">
       <source type="archive">
         <!-- some of mirror sever of gnu.org isn't available.. -->
@@ -510,6 +548,7 @@
         <attribute name="post_installation" value="cd $SRCDIR; mkdir $INSTALLDIR/bin_dce; /bin/cp zebra/zebra $INSTALLDIR/bin_dce;/bin/cp ripd/ripd $INSTALLDIR/bin_dce;/bin/cp ripngd/ripngd $INSTALLDIR/bin_dce;/bin/cp ospfd/ospfd $INSTALLDIR/bin_dce;/bin/cp ospf6d/ospf6d $INSTALLDIR/bin_dce;/bin/cp bgpd/bgpd $INSTALLDIR/bin_dce"/>
       </build>
     </module>
+
     <module name="click-dev">
       <source type="git">
         <attribute name="url" value="git://github.com/kohler/click.git"/>
@@ -519,6 +558,7 @@
         <attribute name="post_installation" value="mkdir $INSTALLDIR/lib; cp -r $OBJDIR/include $INSTALLDIR/lib/."/>
       </build>
     </module>
+
     <module name="click-ns-3.17">
       <source type="git">
         <attribute name="url" value="git://github.com/kohler/click.git"/>
@@ -529,6 +569,7 @@
         <attribute name="post_installation" value="mkdir $INSTALLDIR/lib; cp -r $OBJDIR/include $INSTALLDIR/lib/."/>
       </build>
     </module>
+
     <module name="click-ns-3.20">
       <source type="git">
         <attribute name="url" value="git://github.com/kohler/click.git"/>
@@ -539,6 +580,7 @@
         <attribute name="post_installation" value="mkdir $INSTALLDIR/lib; cp -r $OBJDIR/include $INSTALLDIR/lib/."/>
       </build>
     </module>
+
     <module name="click-2.0.1">
       <source type="git">
         <attribute name="url" value="git://read.cs.ucla.edu/git/click"/>
@@ -549,6 +591,7 @@
         <!--	<attribute name="post_installation" value="mkdir $INSTALLDIR/lib; cp -r $OBJDIR/include $INSTALLDIR/lib/.; cp -r $SRCDIR/include $INSTALLDIR/lib"/>	-->
       </build>
     </module>
+
     <module name="libxml2-dev">
       <source type="system_dependency">
         <attribute name="dependency_test" value="xmlIO.h"/>
@@ -561,6 +604,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="openflow-jpelkey">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/jpelkey3/openflow"/>
@@ -574,6 +618,7 @@
       </build>
       <depends_on name="libxml2-dev" optional="False"/>
     </module>
+
     <module name="openflow-dev">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/openflow"/>
@@ -583,6 +628,7 @@
       </build>
       <depends_on name="libxml2-dev" optional="False"/>
     </module>
+
     <module name="openflow-ns-3.17">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/openflow"/>
@@ -593,6 +639,7 @@
       </build>
       <depends_on name="libxml2-dev" optional="False"/>
     </module>
+
     <module name="gccxml-ns3">
       <source type="git">
         <attribute name="url" value="git://github.com/gccxml/gccxml.git"/>
@@ -602,6 +649,7 @@
       <build type="cmake" objdir="yes">
       </build>
     </module>
+
     <module name="pygccxml">
       <source type="archive">
         <attribute name="url" value="http://downloads.sourceforge.net/project/pygccxml/pygccxml/pygccxml-1.0/pygccxml-1.0.0.zip"/>
@@ -610,6 +658,7 @@
       </build>
       <depends_on name="gccxml-ns3" optional="False"/>
     </module>
+
     <module name="pygccxml-1.0.0">
       <source type="archive">
         <attribute name="url" value="http://downloads.sourceforge.net/project/pygccxml/pygccxml/pygccxml-1.0/pygccxml-1.0.0.zip"/>
@@ -618,6 +667,7 @@
       </build>
       <depends_on name="gccxml-ns3" optional="False"/>
     </module>
+
     <module name="python-dev">
       <source type="system_dependency">
         <attribute name="dependency_test" value="Python.h"/>
@@ -629,6 +679,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="pygraphviz">
       <source type="system_dependency">
         <attribute name="dependency_test" value="(_gv.so or _graphviz.so)"/>
@@ -1161,6 +1212,7 @@
       <depends_on name="ns-3.18" optional="False"/>
       <build type="none"/>
     </module>
+
     <module name="ns-allinone-3.18.1">
       <source type="none"/>
       <depends_on name="netanim-3.103" optional="True"/>
@@ -1174,6 +1226,7 @@
       <depends_on name="ns-3.18.1" optional="False"/>
       <build type="none"/>
     </module>
+
     <module name="ns-allinone-3.19">
       <source type="none"/>
       <depends_on name="netanim-3.104" optional="True"/>
@@ -1187,6 +1240,7 @@
       <depends_on name="ns-3.19" optional="False"/>
       <build type="none"/>
     </module>
+
     <module name="ns-allinone-3.20">
       <source type="none"/>
       <depends_on name="netanim-3.105" optional="True"/>
@@ -1200,6 +1254,7 @@
       <depends_on name="ns-3.20" optional="False"/>
       <build type="none"/>
     </module>
+
     <module name="dce-meta-1.0">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dce"/>
@@ -1214,6 +1269,7 @@
       <depends_on name="thttpd" optional="True"/>
       <build type="none" />
     </module>
+
     <module name="dce-ns3-1.0">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dce"/>
@@ -1226,6 +1282,7 @@
         <attribute name="configure_arguments" value="configure --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --prefix=$INSTALLDIR"/>
       </build>
     </module>
+
     <module name="dce-linux-1.0">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dce"/>
@@ -1240,6 +1297,7 @@
         <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch"/>
       </build>
     </module>
+
     <module name="dce-quagga-1.0">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/thehajime/ns-3-dce-quagga"/>
@@ -1253,6 +1311,7 @@
         <attribute name="supported_os" value="linux;linux2"/>
       </build>
     </module>
+
     <module name="dce-umip-1.0">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/thehajime/ns-3-dce-umip"/>
@@ -1267,6 +1326,7 @@
         <attribute name="supported_os" value="linux;linux2"/>
       </build>
     </module>
+
     <!-- dce-1.1.1 -->
     <module name="dce-1.1.1-patches">
       <source type="git">
@@ -1274,6 +1334,7 @@
       </source>
       <build type="none"/>
     </module>
+
     <module name="dce-meta-1.1.1">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dce"/>
@@ -1291,6 +1352,7 @@
         <attribute name="patch" value="$SRCDIR/../dce-1.1.1-patches/dce-1.1-ns3-18.1.patch"/>
       </build>
     </module>
+
     <module name="dce-ns3-1.1.1">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dce"/>
@@ -1303,6 +1365,7 @@
         <attribute name="configure_arguments" value="configure --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --prefix=$INSTALLDIR"/>
       </build>
     </module>
+
     <module name="dce-linux-1.1.1">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dce"/>
@@ -1317,6 +1380,7 @@
         <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch"/>
       </build>
     </module>
+
     <module name="dce-quagga-1.1.1">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/thehajime/ns-3-dce-quagga"/>
@@ -1330,6 +1394,7 @@
         <attribute name="supported_os" value="linux;linux2"/>
       </build>
     </module>
+
     <module name="dce-umip-1.1.1">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/thehajime/ns-3-dce-umip"/>
@@ -1344,6 +1409,7 @@
         <attribute name="supported_os" value="linux;linux2"/>
       </build>
     </module>
+
     <!-- dce-1.1 -->
     <module name="dce-meta-1.1">
       <source type="mercurial">
@@ -1360,6 +1426,7 @@
       <build type="none">
       </build>
     </module>
+
     <module name="dce-ns3-1.1">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dce"/>
@@ -1372,6 +1439,7 @@
         <attribute name="configure_arguments" value="configure --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --prefix=$INSTALLDIR"/>
       </build>
     </module>
+
     <module name="dce-linux-1.1">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dce"/>
@@ -1386,6 +1454,7 @@
         <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch"/>
       </build>
     </module>
+
     <module name="dce-quagga-1.1">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/thehajime/ns-3-dce-quagga"/>
@@ -1399,6 +1468,7 @@
         <attribute name="supported_os" value="linux;linux2"/>
       </build>
     </module>
+
     <module name="dce-umip-1.1">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/thehajime/ns-3-dce-umip"/>
@@ -1413,6 +1483,7 @@
         <attribute name="supported_os" value="linux;linux2"/>
       </build>
     </module>
+
     <!-- dce-1.2 -->
     <module name="dce-meta-1.2">
       <source type="mercurial">
@@ -1429,6 +1500,7 @@
       <build type="none">
       </build>
     </module>
+
     <module name="dce-ns3-1.2">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dce"/>
@@ -1441,6 +1513,7 @@
         <attribute name="configure_arguments" value="configure --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --prefix=$INSTALLDIR"/>
       </build>
     </module>
+
     <module name="dce-linux-1.2">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dce"/>
@@ -1455,6 +1528,7 @@
         <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch"/>
       </build>
     </module>
+
     <module name="dce-quagga-1.2">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/thehajime/ns-3-dce-quagga"/>
@@ -1468,6 +1542,7 @@
         <attribute name="supported_os" value="linux;linux2"/>
       </build>
     </module>
+
     <module name="dce-umip-1.2">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/thehajime/ns-3-dce-umip"/>
@@ -1482,6 +1557,7 @@
         <attribute name="supported_os" value="linux;linux2"/>
       </build>
     </module>
+
     <!-- dce-1.3 -->
     <module name="dce-meta-1.3">
       <source type="mercurial">
@@ -1498,6 +1574,7 @@
       <build type="none">
       </build>
     </module>
+
     <module name="dce-ns3-1.3">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dce"/>
@@ -1510,6 +1587,7 @@
         <attribute name="configure_arguments" value="configure --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --prefix=$INSTALLDIR"/>
       </build>
     </module>
+
     <module name="dce-linux-1.3">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dce"/>
@@ -1524,6 +1602,7 @@
         <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch"/>
       </build>
     </module>
+
     <module name="dce-freebsd-1.3">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dce"/>
@@ -1537,6 +1616,7 @@
         <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --with-libaspect=$INSTALLDIR --enable-kernel-stack=$SRCDIR/../freebsd-sim/sys"/>
       </build>
     </module>
+
     <module name="dce-quagga-1.3">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/thehajime/ns-3-dce-quagga"/>
@@ -1550,6 +1630,7 @@
         <attribute name="supported_os" value="linux;linux2"/>
       </build>
     </module>
+
     <module name="dce-umip-1.3">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/thehajime/ns-3-dce-umip"/>
@@ -1564,6 +1645,7 @@
         <attribute name="supported_os" value="linux;linux2"/>
       </build>
     </module>
+
     <!-- dce-linux openflow -->
     <module name="libfluid_base">
       <source type="git">
@@ -1576,6 +1658,7 @@
         <attribute name="configure_arguments" value="./configure 'CFLAGS=-g -fPIC -U_FORTIFY_SOURCE' 'CXXFLAGS=-g -fpic -U_FORTIFY_SOURCE' 'LDFLAGS=-pie -rdynamic' --prefix=/usr --exec-prefix=/usr"/>
       </build>
     </module>
+
     <module name="libfluid">
       <source type="git">
         <attribute name="url" value="https://github.com/OpenNetworkingFoundation/libfluid_msg.git"/>
@@ -1589,7 +1672,8 @@
         <attribute name="configure_arguments" value="./configure 'CFLAGS=-g -fPIC -U_FORTIFY_SOURCE' 'CXXFLAGS=-g -fpic -U_FORTIFY_SOURCE' 'LDFLAGS=-pie -rdynamic' --prefix=/usr --exec-prefix=/usr"/>
       </build>
     </module>
-    <module built_once="True" name="Python-2.7.10-git">
+
+    <module name="Python-2.7.10-git" built_once="True">
       <source type="git">
         <attribute name="url" value="https://github.com/jaredivey/Python-2.7.10.git"/>
         <attribute name="module_directory" value="Python-2.7.10-git"/>
@@ -1600,7 +1684,8 @@
         <attribute name="post_installation" value="cp $INSTALLDIR/bin/python2.7 $INSTALLDIR/bin/python2-dce ; cp $INSTALLDIR/bin/python2.7 $INSTALLDIR/bin/python2.7.10"/>
       </build>
     </module>
-    <module built_once="True" name="Python-2.7.10">
+
+    <module name="Python-2.7.10" built_once="True">
       <source type="mercurial">
         <attribute name="url" value="https://hg.python.org/cpython"/>
         <attribute name="module_directory" value="Python-2.7.10"/>
@@ -1620,7 +1705,8 @@
         <attribute name="post_installation" value="cp $INSTALLDIR/bin/python2.7 $INSTALLDIR/bin/python2-dce ; cp $INSTALLDIR/bin/python2.7 $INSTALLDIR/bin/python2.7.10"/>
       </build>
     </module>
-    <module built_once="True" name="greenlet">
+
+    <module name="greenlet" built_once="True">
       <source type="archive">
         <attribute name="url" value="https://pypi.python.org/packages/f2/3f/09412b656067f280cf017ce5b6465e6339089129212425111117be5557d9/greenlet-0.4.10.tar.gz#md5=5351f8ac5196a00d835c2cb1faf75270"/>
         <attribute name="module_directory" value="greenlet"/>
@@ -1629,7 +1715,8 @@
         <attribute name="pre_installation" value="cp -r $SRCDIR $SRCDIR/../Python-2.7.10/Modules/"/>
       </build>
     </module>
-    <module built_once="True" name="eventlet">
+
+    <module name="eventlet" built_once="True">
       <source type="archive">
         <attribute name="url" value="https://pypi.python.org/packages/5a/e8/ac80f330a80c18113df0f4f872fb741974ad2179f8c2a5e3e45f40214cef/eventlet-0.19.0.tar.gz#md5=fde857181347d5b7b921541367a99204"/>
         <attribute name="module_directory" value="eventlet"/>
@@ -1638,7 +1725,8 @@
         <attribute name="pre_installation" value="cp -r $SRCDIR/eventlet $SRCDIR/../Python-2.7.10/Lib/"/>
       </build>
     </module>
-    <module built_once="True" name="oslo_config">
+
+    <module name="oslo_config" built_once="True">
       <source type="archive">
         <attribute name="url" value="https://pypi.python.org/packages/e3/2b/f4da5fc091bebda229caece59e81867ab439858ece54b59c1da95501396f/oslo.config-3.12.0.tar.gz#md5=030f1e32a3e80141105e9099b9cb6639"/>
         <attribute name="module_directory" value="oslo_config"/>
@@ -1648,7 +1736,8 @@
         <attribute name="pre_installation" value="cp -r $SRCDIR/oslo_config $SRCDIR/../Python-2.7.10/Lib/"/>
       </build>
     </module>
-    <module built_once="True" name="netaddr">
+
+    <module name="netaddr" built_once="True">
       <source type="archive">
         <attribute name="url" value="https://pypi.python.org/packages/7c/ec/104f193e985e0aa813ffb4ba5da78d6ae3200165bf583d522ac2dc40aab2/netaddr-0.7.18.tar.gz#md5=c65bb34f8bedfbbca0b316c490cd13a0"/>
         <attribute name="module_directory" value="netaddr"/>
@@ -1657,7 +1746,8 @@
         <attribute name="pre_installation" value="cp -r $SRCDIR/netaddr $SRCDIR/../Python-2.7.10/Lib/"/>
       </build>
     </module>
-    <module built_once="True" name="routes">
+
+    <module name="routes" built_once="True">
       <source type="archive">
         <attribute name="url" value="https://pypi.python.org/packages/96/da/6a61cdab81a76cfc6c5d160cbc11942d6135c19923a6a984969c506a8b82/Routes-2.3.1.tar.gz"/>
         <attribute name="module_directory" value="routes"/>
@@ -1666,7 +1756,8 @@
         <attribute name="pre_installation" value="cp -r $SRCDIR/routes $SRCDIR/../Python-2.7.10/Lib/"/>
       </build>
     </module>
-    <module built_once="True" name="repoze">
+
+    <module name="repoze" built_once="True">
       <source type="archive">
         <attribute name="url" value="https://pypi.python.org/packages/6e/1e/aa15cc90217e086dc8769872c8778b409812ff036bf021b15795638939e4/repoze.lru-0.6.tar.gz#md5=2c3b64b17a8e18b405f55d46173e14dd"/>
         <attribute name="module_directory" value="repoze"/>
@@ -1675,7 +1766,8 @@
         <attribute name="pre_installation" value="cp -r $SRCDIR/repoze $SRCDIR/../Python-2.7.10/Lib/"/>
       </build>
     </module>
-    <module built_once="True" name="webob">
+
+    <module name="webob" built_once="True">
       <source type="archive">
         <attribute name="url" value="https://pypi.python.org/packages/5d/c7/7c1565b188d8d32bf3657a24b9d71621e35ba20ec4179a0a7f9803511099/WebOb-1.6.1.tar.gz#md5=04049d82e9d12dd91f6f46f54cc826aa"/>
         <attribute name="module_directory" value="webob"/>
@@ -1684,7 +1776,8 @@
         <attribute name="pre_installation" value="cp -r $SRCDIR/webob $SRCDIR/../Python-2.7.10/Lib/"/>
       </build>
     </module>
-    <module built_once="True" name="jdk8u">
+
+    <module name="jdk8u" built_once="True">
       <source type="mercurial">
         <attribute name="post_download" value="" />
         <attribute name="url" value="http://hg.openjdk.java.net/jdk8u/jdk8u" />
@@ -1701,6 +1794,7 @@
         <attribute name="post_installation" value=""/>
       </build>
     </module>
+
     <module name="ns-3-sdn-1.0">
       <source type="git">
         <attribute name="url" value="https://github.com/jaredivey/ns-3-sdn.git"/>
@@ -1714,6 +1808,7 @@
         <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --enable-tests --enable-examples --enable-mpi --enable-sdn"/>
       </build>
     </module>
+
     <module name="dce-python-sdn">
       <source type="git">
         <attribute name="url" value="https://github.com/jaredivey/ns-3-dce.git"/>
@@ -1740,7 +1835,8 @@
         <attribute name="post_installation" value="mkdir $SRCDIR/files-0 ; ln -s $INSTALLDIR/lib/python2.7 $SRCDIR/files-0/ ; cp -r $SRCDIR/../pox $SRCDIR/files-0/ ; cp $SRCDIR/../ryu/bin/ryu-manager $SRCDIR/files-0/ ; cp -r $SRCDIR/../ryu/ryu $SRCDIR/files-0/; cp -r $SRCDIR/../ryu/etc $SRCDIR/files-0/"/>
       </build>
     </module>
-    <module built_once="True" name="iproute-2.6.38-fix-01">
+
+    <module name="iproute-2.6.38-fix-01" built_once="True">
       <source type="archive">
         <attribute name="post_download" value="" />
         <attribute name="url" value="http://www.linuxgrill.com/anonymous/iproute2/NEW-OSDL/iproute2-2.6.38.tar.bz2" />
@@ -1772,7 +1868,8 @@
       <depends_on name="flex" optional="False" />
       <depends_on name="libssl-dev" optional="False" />
     </module>
-    <module built_once="True" name="bash">
+
+    <module name="bash" built_once="True">
       <source type="archive">
         <attribute name="extract_directory" value="bash-4.1" />
         <attribute name="post_download" value="" />
@@ -1801,6 +1898,7 @@
         <attribute name="v_PKG_CONFIG" value="" />
       </build>
     </module>
+
     <module name="ns-3.24">
       <source type="mercurial">
         <attribute name="post_download" value="" />
@@ -1811,30 +1909,16 @@
         <attribute name="revision" value="tip" />
       </source>
       <build type="waf">
-        <attribute name="CXXFLAGS" value="" />
         <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --enable-examples --enable-tests" />
-        <attribute name="v_LD_LIBRARY" value="" />
-        <attribute name="LDFLAGS" value="" />
-        <attribute name="CC" value="" />
         <attribute name="ignore_predefined_flags" value="False" />
-        <attribute name="build_arguments" value="" />
-        <attribute name="pre_installation" value="" />
         <attribute name="patch" value="$SRCDIR/../../ns-3.24-to-ns-3.24.1.patch" />
-        <attribute name="CFLAGS" value="" />
-        <attribute name="CXX" value="" />
-        <attribute name="supported_os" value="" />
-        <attribute name="v_PATH" value="" />
-        <attribute name="no_installation" value="" />
-        <attribute name="new_variable" value="" />
         <attribute name="objdir" value="yes" />
-        <attribute name="post_installation" value="" />
-        <attribute name="install_arguments" value="" />
-        <attribute name="v_PKG_CONFIG" value="" />
       </build>
       <depends_on name="netanim-3.106" optional="True" />
       <depends_on name="pybindgen-0.17.0.post41+ngd10fa60" optional="True" />
       <depends_on name="pyviz-prerequisites" optional="True" />
     </module>
+
     <module name="ns-3-sdn-3.24">
       <source type="git">
         <attribute name="url" value="https://github.com/jaredivey/ns-3-sdn-3.24.git"/>
@@ -1842,19 +1926,18 @@
       </source>
       <build type="waf">
         <attribute name="supported_os" value="linux;linux2"/>
-        <attribute name="CC" value=""/>
-        <attribute name="CXX" value=""/>
-        <attribute name="CFLAGS" value=""/>
-        <attribute name="CXXFLAGS" value=""/>
-        <attribute name="LDFLAGS" value=""/>
         <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --enable-examples --enable-tests --enable-mpi --enable-sdn"/>
         <attribute name="ignore_predefined_flags" value="False"/>
         <attribute name="objdir" value="yes"/>
+        <attribute name="patch" value="src/ofswitch13/utils/ofswitch13-csma-3_24_1.patch"/>
+        <attribute name="patch" value="src/ofswitch13/utils/ofswitch13-doc-3_24_1.patch"/>
       </build>
       <depends_on name="netanim-3.106" optional="True" />
       <depends_on name="pybindgen-0.17.0.post41+ngd10fa60" optional="True" />
       <depends_on name="pyviz-prerequisites" optional="True" />
+      <depends_on name="ofswitch13-module" optional="True" />
     </module>
+
     <module name="dce-meta-1.7">
       <source type="mercurial">
         <attribute name="post_download" value="" />
@@ -1885,6 +1968,7 @@
       <depends_on name="thttpd" optional="True" />
       <depends_on name="bash" optional="True" />
     </module>
+
     <module name="dce-linux-1.7">
       <source type="mercurial">
         <attribute name="post_download" value="" />
@@ -1919,6 +2003,7 @@
       <depends_on name="net-next-sim-2.6.36" optional="False" />
       <depends_on name="iproute-2.6.38-fix-01" optional="False" />
     </module>
+
     <module name="dce-sdn-1.7">
       <source type="git">
         <attribute name="url" value="https://github.com/jaredivey/ns-3-dce-1.7.git"/>
@@ -1936,18 +2021,19 @@
       <depends_on name="POX" optional="False"/>
       <depends_on name="ns-3-sdn-3.24" optional="False"/>
       <depends_on name="net-next-sim-2.6.36" optional="False"/>
+      <depends_on name="ofswitch13-module" optional="False"/>
       <depends_on name="Python-2.7.10" optional="True"/>
       <depends_on name="jdk8u" optional="True"/>
-      <depends_on name="netbee" optional="False"/>
-      <depends_on name="ofswitch13-module" optional="False"/>
       <depends_on name="iproute-2.6.38-fix-01" optional="False"/>
       <depends_on name="bash" optional="True"/>
+
       <build type="waf" objdir="build">
         <attribute name="supported_os" value="linux;linux2"/>
-        <attribute name="configure_arguments" value="configure --enable-mpi --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --with-libaspect=$INSTALLDIR --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch --prefix=$INSTALLDIR"/>
+        <attribute name="configure_arguments" value="configure --enable-mpi --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --with-libaspect=$INSTALLDIR --with-ofswitch13=$INSTALLDIR --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch --prefix=$INSTALLDIR"/>
         <attribute name="post_installation" value="mkdir $SRCDIR/files-0 ; ln -s $INSTALLDIR/lib/python2.7 $SRCDIR/files-0/ ; cp -r $SRCDIR/../pox $SRCDIR/files-0/ ; cp $SRCDIR/../ryu/bin/ryu-manager $SRCDIR/files-0/ ; cp -r $SRCDIR/../ryu/ryu $SRCDIR/files-0/; cp -r $SRCDIR/../ryu/etc $SRCDIR/files-0/ ; ln -s $INSTALLDIR/jvm/openjdk-1.8.0-internal $SRCDIR/files-0/ ; mkdir $SRCDIR/files-0/dummies ; cp -r $SRCDIR/myscripts/python/proc $SRCDIR/files-0/ ; cd $SRCDIR/myscripts/python/testscripts ; javac PiDigits.java ; cp PiDigits.class $SRCDIR/files-0/ "/>
       </build>
     </module>
+
     <module name="dce-sdn-cuda-1.7">
       <source type="git">
         <attribute name="url" value="https://github.com/jaredivey/ns-3-dce-1.7.git"/>
@@ -1969,20 +2055,22 @@
       <depends_on name="POX" optional="False"/>
       <depends_on name="ns-3-sdn-3.24" optional="False"/>
       <depends_on name="net-next-sim-2.6.36" optional="False"/>
+      <depends_on name="ofswitch13-module" optional="False"/>
       <depends_on name="Python-2.7.10" optional="True"/>
       <depends_on name="jdk8u" optional="True"/>
-      <depends_on name="ofswitch13-module" optional="True"/>
       <depends_on name="iproute-2.6.38-fix-01" optional="False"/>
       <depends_on name="bash" optional="True"/>
       <build type="waf" objdir="build">
         <attribute name="supported_os" value="linux;linux2"/>
-        <attribute name="configure_arguments" value="configure --enable-mpi --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --with-libaspect=$INSTALLDIR --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch --prefix=$INSTALLDIR"/>
+        <attribute name="configure_arguments" value="configure --enable-mpi --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --with-libaspect=$INSTALLDIR --with-ofswitch13=$INSTALLDIR --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch --prefix=$INSTALLDIR"/>
         <attribute name="post_installation" value="mkdir $SRCDIR/files-0 ; ln -s $INSTALLDIR/lib/python2.7 $SRCDIR/files-0/ ; cp -r $SRCDIR/../pox $SRCDIR/files-0/ ; cp $SRCDIR/../ryu/bin/ryu-manager $SRCDIR/files-0/ ; cp -r $SRCDIR/../ryu/ryu $SRCDIR/files-0/; cp -r $SRCDIR/../ryu/etc $SRCDIR/files-0/ ; ln -s $INSTALLDIR/jvm/openjdk-1.8.0-internal $SRCDIR/files-0/ ; mkdir $SRCDIR/files-0/dummies ; cp -r $SRCDIR/myscripts/python/proc $SRCDIR/files-0/ ; cd $SRCDIR/myscripts/python/testscripts ; javac PiDigits.java ; cp PiDigits.class $SRCDIR/files-0/ ; echo '00000000000000000000000000000000' >> $SRCDIR/files-0/key.txt ; echo 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. (Filling up enough extra space to make the file a multiple of 16)' >> $SRCDIR/files-0/hello.txt ; mkdir files-1 ; echo '00000000000000000000000000000000' >> $SRCDIR/files-1/key.txt"/>
       </build>
     </module>
+
     <module name="POX">
       <source type="git">
         <attribute name="url" value="https://github.com/noxrepo/pox.git"/>
+        <!-- <attribute name="revision" value="eel"/> -->
         <attribute name="revision" value="006ea891c2036e9dc8c0299dd3f5a21aad0ef624"/>
         <attribute name="module_directory" value="pox"/>
       </source>
@@ -1991,6 +2079,7 @@
         <attribute name="patch" value="$SRCDIR/../../pox.patch"/>
       </build>
     </module>
+
     <module name="Ryu">
       <source type="git">
         <attribute name="url" value="https://github.com/osrg/ryu.git"/>
@@ -2002,9 +2091,10 @@
         <attribute name="patch" value="$SRCDIR/../../ryu.patch"/>
       </build>
     </module>
+
     <module name="cudadr">
       <source type="git">
-        <attribute name="url" value="git://github.com/jaredivey/gvirtus.cudadr"/>
+        <attribute name="url" value="https://github.com/jaredivey/gvirtus.cudadr.git"/>
         <attribute name="module_directory" value="cudadr"/>
       </source>
       <depends_on name="gvirtus" optional="False"/>
@@ -2012,9 +2102,10 @@
         <attribute name="configure_arguments" value="./configure 'CPPFLAGS=-I$SRCDIR/util -isystem /usr/local/cuda/include -I$INSTALLDIR/include/gvirtus' 'LDFLAGS=-pthread -L/usr/local/cuda/lib -L/usr/local/cuda/lib64 -L$INSTALLDIR/lib' --exec-prefix=$INSTALLDIR --prefix=$INSTALLDIR"/>
       </build>
     </module>
+
     <module name="cudart">
       <source type="git">
-        <attribute name="url" value="git://github.com/jaredivey/gvirtus.cudart"/>
+        <attribute name="url" value="https://github.com/jaredivey/gvirtus.cudart.git"/>
         <attribute name="module_directory" value="cudart"/>
       </source>
       <depends_on name="gvirtus" optional="False"/>
@@ -2022,9 +2113,10 @@
         <attribute name="configure_arguments" value="./configure 'CPPFLAGS=-I$SRCDIR/util -isystem /usr/local/cuda/include -I$INSTALLDIR/include/gvirtus' 'LDFLAGS=-pthread -L/usr/local/cuda/lib -L/usr/local/cuda/lib64 -L$INSTALLDIR/lib' --exec-prefix=$INSTALLDIR --prefix=$INSTALLDIR"/>
       </build>
     </module>
+
     <module name="gvirtus">
       <source type="git">
-        <attribute name="url" value="git://github.com/jaredivey/gvirtus"/>
+        <attribute name="url" value="https://github.com/jaredivey/gvirtus.git"/>
         <attribute name="module_directory" value="gvirtus"/>
       </source>
       <build type="autotools" objdir="no">
@@ -2032,6 +2124,7 @@
         <attribute name="post_installation" value="echo 'communicator : afunix:///tmp/gvirtus:0666' > $INSTALLDIR/etc/cudadr.properties ; echo 'plugins : $INSTALLDIR/lib/backend/libcudadr-backend.so' >> $INSTALLDIR/etc/cudadr.properties ; echo 'communicator : tap://128.0.0.1:50' > $INSTALLDIR/etc/cudadr-tap.properties ; echo 'plugins : $INSTALLDIR/lib/backend/libcudadr-backend.so' >> $INSTALLDIR/etc/cudadr-tap.properties ; echo 'communicator : afunix:///tmp/gvirtus:0666' > $INSTALLDIR/etc/cudart.properties ; echo 'plugins : $INSTALLDIR/lib/backend/libcudart-backend.so' >> $INSTALLDIR/etc/cudart.properties ; echo 'communicator : tap://128.0.0.1:50' > $INSTALLDIR/etc/cudart-tap.properties ; echo 'plugins : $INSTALLDIR/lib/backend/libcudart-backend.so' >> $INSTALLDIR/etc/cudart-tap.properties" />
       </build>
     </module>
+
     <module name="net-next-sim">
       <source type="git">
         <attribute name="url" value="https://github.com/direct-code-execution/net-next-sim.git"/>
@@ -2050,58 +2143,56 @@
     <module name="netbee">
       <source type="git">
         <attribute name="url" value="https://github.com/jjones646/netbee.git"/>
+        <attribute name="revision" value="ofsoftswitch13"/>
         <attribute name="module_directory" value="netbee"/>
       </source>
-      <build type="make" objdir="no">
+      <build type="make">
         <attribute name="supported_os" value="linux;linux2"/>
         <attribute name="pre_installation" value="cd $SRCDIR/src; cmake ."/>
-        <attribute name="build_arguments" value="-C src/ -j"/>
-        <attribute name="post_installation" value="cp $SRCDIR/bin/*.so $INSTALLDIR/lib/; sudo cp $SRCDIR/bin/*.so /usr/local/lib/ &amp;&amp; sudo ldconfig; cp $SRCDIR/lib/*.so $INSTALLDIR/lib/ ; cp -r $SRCDIR/include/* $INSTALLDIR/; sudo cp -r $SRCDIR/include/* /usr/include/"/>
+        <attribute name="build_arguments" value="-C src -j"/>
+        <attribute name="post_installation" value="cp -r $SRCDIR/include/*.h $INSTALLDIR/include/netbee; cp $SRCDIR/bin/*.so $INSTALLDIR/lib"/>
+        <!-- <attribute name="post_installation" value="sudo cp -r $SRCDIR/include/*.h /usr/include; sudo cp $SRCDIR/bin/*.so /usr/local/lib &amp;&amp; sudo ldconfig"/> -->
       </build>
       <depends_on name="g++" optional="False"/>
-      <depends_on name="cmake" optional="False"/>
-      <depends_on name="libpcap-dev" optional="False"/>
-      <depends_on name="libpcre3-dev" optional="False"/>
       <depends_on name="flex" optional="False"/>
       <depends_on name="bison" optional="False"/>
+      <depends_on name="cmake" optional="False"/>
+      <depends_on name="libpcre3-dev" optional="False"/>
+      <depends_on name="libpcap-dev" optional="False"/>
     </module>
+
     <module name="ofsoftswitch13">
       <source type="git">
         <attribute name="url" value="https://github.com/ljerezchaves/ofsoftswitch13.git"/>
-        <attribute name="module_directory" value="ofsoftswitch13"/>
         <attribute name="revision" value="ns3lib"/>
+        <attribute name="module_directory" value="ofsoftswitch13"/>
       </source>
-      <build type="make" objdir="no">
+      <build type="make">
         <attribute name="supported_os" value="linux;linux2"/>
-        <attribute name="pre_installation" value="cd $SRCDIR; ./boot.sh; ./configure --enable-ns3-lib"/>
+        <attribute name="pre_installation" value="cd $SRCDIR; ./boot.sh; 'CPPFLAGS=-I$INSTALLDIR/include -L$INSTALLDIR/lib' ./configure --exec-prefix=$INSTALLDIR --prefix=$INSTALLDIR --enable-ns3-lib"/>
         <attribute name="build_arguments" value="-j"/>
         <attribute name="no_installation" value="True"/>
-        <!-- TODO (Jon): get the compiled objects somewhere useful -->
+        <!-- TODO (Jon): move the compiled library file somewhere? -->
         <!-- <attribute name="post_installation" value="cp udatapath/*.a somewhere/"/> -->
       </build>
-      <depends_on name="g++" optional="False"/>
-      <depends_on name="libpcap-dev" optional="False"/>
-      <depends_on name="libpcre3-dev" optional="False"/>
-      <depends_on name="flex" optional="False"/>
-      <depends_on name="bison" optional="False"/>
       <depends_on name="netbee" optional="False"/>
     </module>
+
     <module name="ofswitch13-module">
       <source type="mercurial">
         <attribute name="url" value="https://bitbucket.org/ljerezchaves/ofswitch13-module"/>
         <attribute name="module_directory" value="ns-3-sdn/src/ofswitch13"/>
         <attribute name="revision" value="2.0.2"/>
       </source>
-      <build type="waf" objdir="no">
+      <build type="none">
         <attribute name="supported_os" value="linux;linux2"/>
-        <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --with-ns3=$INSTALLDIR --with-ofswitch13=$SRCDIR"/>
-        <!-- TODO (Jon): Apply the patches before waf gets called -->
-        <attribute name="patch" value="$SRCDIR/utils/ofswitch13-csma-3_24_1.patch"/>
-        <attribute name="patch" value="$SRCDIR/utils/ofswitch13-doc-3_24_1.patch"/>
+        <!-- TODO (Jon): Apply these patches before waf gets called (idk how bake treats patch attributes, maybe ok as is?) -->
+        <!-- <attribute name="patch" value="utils/ofswitch13-csma-3_24_1.patch"/> -->
+        <!-- <attribute name="patch" value="utils/ofswitch13-doc-3_24_1.patch"/> -->
       </build>
-      <depends_on name="ns-3-sdn-3.24" optional="False"/>
       <depends_on name="ofsoftswitch13" optional="False"/>
     </module>
+
     <!--  Bake specific dependencies -->
     <module name="mercurial">
       <source type="system_dependency">
@@ -2114,6 +2205,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="subversion">
       <source type="system_dependency">
         <attribute name="dependency_test" value="svn"/>
@@ -2125,6 +2217,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="unrar">
       <source type="system_dependency">
         <attribute name="dependency_test" value="unrar"/>
@@ -2136,6 +2229,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="make">
       <source type="system_dependency">
         <attribute name="dependency_test" value="make"/>
@@ -2147,6 +2241,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="patch">
       <source type="system_dependency">
         <attribute name="dependency_test" value="patch"/>
@@ -2158,6 +2253,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="tar">
       <source type="system_dependency">
         <attribute name="dependency_test" value="tar"/>
@@ -2169,6 +2265,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="cvs">
       <source type="system_dependency">
         <attribute name="dependency_test" value="cvs"/>
@@ -2180,6 +2277,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="git">
       <source type="system_dependency">
         <attribute name="dependency_test" value="git"/>
@@ -2191,6 +2289,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="bazaar">
       <source type="system_dependency">
         <attribute name="dependency_test" value="bzr"/>
@@ -2202,6 +2301,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="cmake">
       <source type="system_dependency">
         <attribute name="dependency_test" value="cmake"/>
@@ -2213,6 +2313,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="automake">
       <source type="system_dependency">
         <attribute name="dependency_test" value="autoconf"/>
@@ -2224,6 +2325,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="7z">
       <source type="system_dependency">
         <attribute name="dependency_test" value="7z"/>
@@ -2235,6 +2337,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="xz-utils">
       <source type="system_dependency">
         <attribute name="dependency_test" value="xz"/>
@@ -2246,7 +2349,8 @@
       <build type="none" objdir="no">
       </build>
     </module>
-    <!-- For the documentation -->
+
+    <!-- For documentation -->
     <module name="python-sphinx">
       <source type="system_dependency">
         <attribute name="dependency_test" value="sphinx-build"/>
@@ -2258,6 +2362,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="python-pygments">
       <source type="system_dependency">
         <attribute name="dependency_test" value="pygmentize"/>
@@ -2269,8 +2374,10 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <!--  Bake dependencies end -->
   </modules>
+
   <predefined name="set-bake-env">
     <enable name="mercurial"/>
     <enable name="subversion"/>
@@ -2288,12 +2395,14 @@
     <enable name="python-sphinx"/>
     <enable name="python-pygments"/>
   </predefined>
+
   <predefined name="dbg">
     <append name="CFLAGS" value="-g"/>
     <append name="CXXFLAGS" value="-g"/>
     <configuration objdir="dbg"/>
     <configuration installdir="build_dbg"/>
   </predefined>
+
   <predefined name="opt">
     <configuration objdir="opt"/>
     <configuration installdir="build_opt"/>
@@ -2301,13 +2410,16 @@
     <append name="CFLAGS" value="-O3"/>
     <append name="CXXFLAGS" value="-O3"/>
   </predefined>
+
   <predefined name="ns3">
     <enable name="ns-3-dev"/>
     <!--    <configuration installdir="." sourcedir="../source"/> -->
     <append module="ns-3-dev" name="configure_arguments" value="--enable-examples --enable-tests --enable-mpi"/>
   </predefined>
+
   <predefined name="ns3-min">
     <enable name="ns-3-dev"/>
     <append module="ns-3-dev" name="configure_arguments" value=" --enable-modules=core,network,wifi"/> -->
   </predefined>
+
 </configuration>

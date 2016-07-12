@@ -7,6 +7,7 @@ BAKE_BIN := $(BAKE_HOME)/bake.py
 
 
 all: libfluid dce
+	echo "success!"
 
 dce:
 	$(BAKE_BIN) --debug configure -c $(BAKE_CONF) -e dce-sdn-1.7
@@ -16,8 +17,8 @@ dce:
 libfluid:
 	$(BAKE_BIN) configure -c $(BAKE_CONF) -e libfluid
 	$(BAKE_BIN) download
-	sudo -E $(BAKE_BIN) build -vvv
-	-rmdir build
+	$(BAKE_BIN) build --sudo -vvv
+	-sudo rmdir build
 	-sudo rm bakefile.xml bakeSetEnv.sh
 
 test:
