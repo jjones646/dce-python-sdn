@@ -1926,16 +1926,16 @@
       </source>
       <build type="waf">
         <attribute name="supported_os" value="linux;linux2"/>
-        <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --enable-examples --enable-tests --enable-mpi --enable-sdn"/>
+        <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --enable-examples --enable-tests --enable-mpi --enable-sdn --with-ofswitch13=$SRCDIR/ofsoftswitch13"/>
         <attribute name="ignore_predefined_flags" value="False"/>
         <attribute name="objdir" value="yes"/>
         <attribute name="patch" value="$SRCDIR/src/ofswitch13/utils/ofswitch13-csma-3_24_1.patch"/>
         <attribute name="patch" value="$SRCDIR/src/ofswitch13/utils/ofswitch13-doc-3_24_1.patch"/>
       </build>
+      <depends_on name="ofswitch13-module" optional="False" />
       <depends_on name="netanim-3.106" optional="True" />
       <depends_on name="pybindgen-0.17.0.post41+ngd10fa60" optional="True" />
       <depends_on name="pyviz-prerequisites" optional="True" />
-      <depends_on name="ofswitch13-module" optional="True" />
     </module>
 
     <module name="dce-meta-1.7">
@@ -2021,14 +2021,14 @@
       <depends_on name="POX" optional="False"/>
       <depends_on name="ns-3-sdn-3.24" optional="False"/>
       <depends_on name="net-next-sim-2.6.36" optional="False"/>
-      <depends_on name="ofswitch13-module" optional="False"/>
+      <!-- <depends_on name="ofswitch13-module" optional="False"/> -->
       <depends_on name="Python-2.7.10" optional="True"/>
       <depends_on name="jdk8u" optional="True"/>
       <depends_on name="iproute-2.6.38-fix-01" optional="False"/>
       <depends_on name="bash" optional="True"/>
       <build type="waf" objdir="build">
         <attribute name="supported_os" value="linux;linux2"/>
-        <attribute name="configure_arguments" value="configure --enable-mpi --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --with-libaspect=$INSTALLDIR --with-ofswitch13=$INSTALLDIR --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch --prefix=$INSTALLDIR"/>
+        <attribute name="configure_arguments" value="configure --enable-mpi --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --with-libaspect=$INSTALLDIR --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch --prefix=$INSTALLDIR"/>
         <attribute name="post_installation" value="mkdir $SRCDIR/files-0 ; ln -s $INSTALLDIR/lib/python2.7 $SRCDIR/files-0/ ; cp -r $SRCDIR/../pox $SRCDIR/files-0/ ; cp $SRCDIR/../ryu/bin/ryu-manager $SRCDIR/files-0/ ; cp -r $SRCDIR/../ryu/ryu $SRCDIR/files-0/; cp -r $SRCDIR/../ryu/etc $SRCDIR/files-0/ ; ln -s $INSTALLDIR/jvm/openjdk-1.8.0-internal $SRCDIR/files-0/ ; mkdir $SRCDIR/files-0/dummies ; cp -r $SRCDIR/myscripts/python/proc $SRCDIR/files-0/ ; cd $SRCDIR/myscripts/python/testscripts ; javac PiDigits.java ; cp PiDigits.class $SRCDIR/files-0/ "/>
       </build>
     </module>
@@ -2054,14 +2054,14 @@
       <depends_on name="POX" optional="False"/>
       <depends_on name="ns-3-sdn-3.24" optional="False"/>
       <depends_on name="net-next-sim-2.6.36" optional="False"/>
-      <depends_on name="ofswitch13-module" optional="False"/>
+      <!-- <depends_on name="ofswitch13-module" optional="False"/> -->
       <depends_on name="Python-2.7.10" optional="True"/>
       <depends_on name="jdk8u" optional="True"/>
       <depends_on name="iproute-2.6.38-fix-01" optional="False"/>
       <depends_on name="bash" optional="True"/>
       <build type="waf" objdir="build">
         <attribute name="supported_os" value="linux;linux2"/>
-        <attribute name="configure_arguments" value="configure --enable-mpi --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --with-libaspect=$INSTALLDIR --with-ofswitch13=$INSTALLDIR --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch --prefix=$INSTALLDIR"/>
+        <attribute name="configure_arguments" value="configure --enable-mpi --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --with-libaspect=$INSTALLDIR --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch --prefix=$INSTALLDIR"/>
         <attribute name="post_installation" value="mkdir $SRCDIR/files-0 ; ln -s $INSTALLDIR/lib/python2.7 $SRCDIR/files-0/ ; cp -r $SRCDIR/../pox $SRCDIR/files-0/ ; cp $SRCDIR/../ryu/bin/ryu-manager $SRCDIR/files-0/ ; cp -r $SRCDIR/../ryu/ryu $SRCDIR/files-0/; cp -r $SRCDIR/../ryu/etc $SRCDIR/files-0/ ; ln -s $INSTALLDIR/jvm/openjdk-1.8.0-internal $SRCDIR/files-0/ ; mkdir $SRCDIR/files-0/dummies ; cp -r $SRCDIR/myscripts/python/proc $SRCDIR/files-0/ ; cd $SRCDIR/myscripts/python/testscripts ; javac PiDigits.java ; cp PiDigits.class $SRCDIR/files-0/ ; echo '00000000000000000000000000000000' >> $SRCDIR/files-0/key.txt ; echo 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. (Filling up enough extra space to make the file a multiple of 16)' >> $SRCDIR/files-0/hello.txt ; mkdir files-1 ; echo '00000000000000000000000000000000' >> $SRCDIR/files-1/key.txt"/>
       </build>
     </module>
