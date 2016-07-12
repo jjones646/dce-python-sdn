@@ -2075,6 +2075,7 @@
         <attribute name="supported_os" value="linux;linux2"/>
         <attribute name="pre_installation" value="cd $SRCDIR; ./boot.sh; ./configure --enable-ns3-lib"/>
         <attribute name="build_arguments" value="-j"/>
+        <attribute name="no_installation" value="True"/>
         <!-- TODO (Jon): get the compiled objects somewhere useful -->
         <!-- <attribute name="post_installation" value="cp udatapath/*.a somewhere/"/> -->
       </build>
