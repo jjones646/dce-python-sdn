@@ -2094,10 +2094,10 @@
       </source>
       <build type="waf" objdir="no">
         <attribute name="supported_os" value="linux;linux2"/>
-        <attribute name="configure_arguments" value="configure --with-ofswitch13=$SRCDIR --prefix=$INSTALLDIR"/>
+        <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --with-ns3=$INSTALLDIR --with-ofswitch13=$SRCDIR"/>
         <!-- TODO (Jon): Apply the patches before waf gets called -->
-        <!-- <attribute name="patch" value="$SRCDIR/utils/ofswitch13-csma-3_24_1.patch"/> -->
-        <!-- <attribute name="patch" value="$SRCDIR/utils/ofswitch13-doc-3_24_1.patch"/> -->
+        <attribute name="patch" value="$SRCDIR/utils/ofswitch13-csma-3_24_1.patch"/>
+        <attribute name="patch" value="$SRCDIR/utils/ofswitch13-doc-3_24_1.patch"/>
       </build>
       <depends_on name="ns-3-sdn-3.24" optional="False"/>
       <depends_on name="ofsoftswitch13" optional="False"/>
