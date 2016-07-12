@@ -2074,6 +2074,7 @@
       </source>
       <build type="make" objdir="no">
         <attribute name="supported_os" value="linux;linux2"/>
+        <attribute name="v_LD_LIBRARY" value="$SRCDIR/netbee/bin,$SRCDIR/netbee/lib"/>
         <attribute name="pre_installation" value="cd $SRCDIR; ./boot.sh; ./configure --enable-ns3-lib"/>
         <attribute name="build_arguments" value="-j"/>
         <!-- TODO (Jon): get the compiled objects somewhere useful -->
