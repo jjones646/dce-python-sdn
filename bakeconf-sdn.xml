@@ -2074,7 +2074,7 @@
       </source>
       <build type="make" objdir="no">
         <attribute name="supported_os" value="linux;linux2"/>
-        <attribute name="pre_installation" value="$SRCDIR/boot.sh; $SRCDIR/configure --enable-ns3-lib"/>
+        <attribute name="pre_installation" value="cd $SRCDIR; ./boot.sh; ./configure --enable-ns3-lib"/>
         <attribute name="build_arguments" value="-j"/>
         <!-- TODO (Jon): get the compiled objects somewhere useful -->
         <!-- <attribute name="post_installation" value="cp udatapath/ somewhere/"/> -->
@@ -2095,7 +2095,6 @@
       <build type="waf" objdir="no">
         <attribute name="supported_os" value="linux;linux2"/>
         <attribute name="configure_arguments" value="configure --with-ofswitch13=$SRCDIR --prefix=$INSTALLDIR"/>
-
         <!-- TODO (Jon): Apply the patches before waf gets called -->
         <!-- <attribute name="patch" value="$SRCDIR/utils/ofswitch13-csma-3_24_1.patch"/> -->
         <!-- <attribute name="patch" value="$SRCDIR/utils/ofswitch13-doc-3_24_1.patch"/> -->
