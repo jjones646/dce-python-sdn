@@ -1919,49 +1919,6 @@
       <depends_on name="net-next-sim-2.6.36" optional="False" />
       <depends_on name="iproute-2.6.38-fix-01" optional="False" />
     </module>
-
-    <module name="netbee">
-      <source type="git">
-        <attribute name="url" value="https://github.com/jjones646/netbee.git"/>
-        <attribute name="module_directory" value="netbee"/>
-      </source>
-      <build type="make" objdir="no">
-        <attribute name="supported_os" value="linux;linux2"/>
-        <attribute name="pre_installation" value="cd $SRCDIR/src; cmake ."/>
-        <attribute name="build_arguments" value="-C src/ -j"/>
-        <attribute name="post_installation" value="cp $SRCDIR/../bin/*.so $INSTALLDIR/lib/; cp $SRCDIR/../lib/*.so $INSTALLDIR/lib/"/>
-        <attribute name="v_LD_LIBRARY" value="$SRCDIR/../bin,$SRCDIR/../lib"/>
-      </build>
-      <depends_on name="g++" optional="False"/>
-      <depends_on name="cmake" optional="False"/>
-      <depends_on name="libpcap-dev" optional="False"/>
-      <depends_on name="libpcre3-dev" optional="False"/>
-      <depends_on name="flex" optional="False"/>
-      <depends_on name="bison" optional="False"/>
-    </module>
-
-    <module name="ofsoftswitch13">
-      <source type="git">
-        <attribute name="url" value="https://github.com/ljerezchaves/ofsoftswitch13.git"/>
-        <attribute name="module_directory" value="ofsoftswitch13"/>
-        <attribute name="revision" value="ns3lib"/>
-      </source>
-      <build type="make" objdir="no">
-        <attribute name="supported_os" value="linux;linux2"/>
-        <attribute name="pre_installation" value="./boot.sh" />
-        <attribute name="configure_arguments" value="--enable-ns3-lib" />
-        <attribute name="build_arguments" value="-j"/>
-
-        <!-- TODO (Jon): get the compiled objects somewhere useful -->
-        <!-- <attribute name="post_installation" value="cp udatapath/ somewhere/"/> -->
-      </build>
-      <depends_on name="libpcap-dev" optional="False"/>
-      <depends_on name="libpcre3-dev" optional="False"/>
-      <depends_on name="flex" optional="False"/>
-      <depends_on name="bison" optional="False"/>
-      <depends_on name="netbee" optional="False"/>
-    </module>
-
     <module name="dce-sdn-1.7">
       <source type="git">
         <attribute name="url" value="https://github.com/jaredivey/ns-3-dce-1.7.git"/>
@@ -2089,6 +2046,46 @@
         <attribute name="post_installation" value="mkdir -p $INSTALLDIR/bin_dce; cd $INSTALLDIR/bin_dce; cp $SRCDIR/liblinux.so ./"/>
       </build>
     </module>
+
+    <module name="netbee">
+      <source type="git">
+        <attribute name="url" value="https://github.com/jjones646/netbee.git"/>
+        <attribute name="module_directory" value="netbee"/>
+      </source>
+      <build type="make" objdir="no">
+        <attribute name="supported_os" value="linux;linux2"/>
+        <attribute name="pre_installation" value="cd $SRCDIR/src; cmake ."/>
+        <attribute name="build_arguments" value="-C src/ -j"/>
+        <attribute name="post_installation" value="cp $SRCDIR/../bin/*.so $INSTALLDIR/lib/; cp $SRCDIR/../lib/*.so $INSTALLDIR/lib/"/>
+        <attribute name="v_LD_LIBRARY" value="$SRCDIR/../bin,$SRCDIR/../lib"/>
+      </build>
+      <depends_on name="g++" optional="False"/>
+      <depends_on name="cmake" optional="False"/>
+      <depends_on name="libpcap-dev" optional="False"/>
+      <depends_on name="libpcre3-dev" optional="False"/>
+      <depends_on name="flex" optional="False"/>
+      <depends_on name="bison" optional="False"/>
+    </module>
+    <module name="ofsoftswitch13">
+      <source type="git">
+        <attribute name="url" value="https://github.com/ljerezchaves/ofsoftswitch13.git"/>
+        <attribute name="module_directory" value="ofsoftswitch13"/>
+        <attribute name="revision" value="ns3lib"/>
+      </source>
+      <build type="make" objdir="no">
+        <attribute name="supported_os" value="linux;linux2"/>
+        <attribute name="pre_installation" value="$SRCDIR/boot.sh; $SRCDIR/configure --enable-ns3-lib"/>
+        <attribute name="build_arguments" value="-j"/>
+        <!-- TODO (Jon): get the compiled objects somewhere useful -->
+        <!-- <attribute name="post_installation" value="cp udatapath/ somewhere/"/> -->
+      </build>
+      <depends_on name="g++" optional="False"/>
+      <depends_on name="libpcap-dev" optional="False"/>
+      <depends_on name="libpcre3-dev" optional="False"/>
+      <depends_on name="flex" optional="False"/>
+      <depends_on name="bison" optional="False"/>
+      <depends_on name="netbee" optional="False"/>
+    </module>
     <module name="ofswitch13-module">
       <source type="mercurial">
         <attribute name="url" value="https://bitbucket.org/ljerezchaves/ofswitch13-module"/>
@@ -2106,6 +2103,7 @@
       <depends_on name="ns-3-sdn-3.24" optional="False"/>
       <depends_on name="ofsoftswitch13" optional="False"/>
     </module>
+
     <!--  Bake specific dependencies -->
     <module name="mercurial">
       <source type="system_dependency">
