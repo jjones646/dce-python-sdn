@@ -2056,8 +2056,7 @@
         <attribute name="supported_os" value="linux;linux2"/>
         <attribute name="pre_installation" value="cd $SRCDIR/src; cmake ."/>
         <attribute name="build_arguments" value="-C src/ -j"/>
-        <attribute name="post_installation" value="cp $SRCDIR/../bin/*.so $INSTALLDIR/lib/; cp $SRCDIR/../lib/*.so $INSTALLDIR/lib/"/>
-        <attribute name="v_LD_LIBRARY" value="$SRCDIR/../bin,$SRCDIR/../lib"/>
+        <attribute name="post_installation" value="cp $SRCDIR/bin/*.so $INSTALLDIR/lib/; sudo cp $SRCDIR/bin/*.so /usr/local/lib/ &amp;&amp; sudo ldconfig; cp $SRCDIR/lib/*.so $INSTALLDIR/lib/ ; cp -r $SRCDIR/include/* $INSTALLDIR/; sudo cp -r $SRCDIR/include/* /usr/include/"/>
       </build>
       <depends_on name="g++" optional="False"/>
       <depends_on name="cmake" optional="False"/>
@@ -2074,11 +2073,10 @@
       </source>
       <build type="make" objdir="no">
         <attribute name="supported_os" value="linux;linux2"/>
-        <attribute name="v_LD_LIBRARY" value="$SRCDIR/netbee/bin,$SRCDIR/netbee/lib"/>
         <attribute name="pre_installation" value="cd $SRCDIR; ./boot.sh; ./configure --enable-ns3-lib"/>
         <attribute name="build_arguments" value="-j"/>
         <!-- TODO (Jon): get the compiled objects somewhere useful -->
-        <!-- <attribute name="post_installation" value="cp udatapath/ somewhere/"/> -->
+        <!-- <attribute name="post_installation" value="cp udatapath/*.a somewhere/"/> -->
       </build>
       <depends_on name="g++" optional="False"/>
       <depends_on name="libpcap-dev" optional="False"/>
@@ -2103,7 +2101,6 @@
       <depends_on name="ns-3-sdn-3.24" optional="False"/>
       <depends_on name="ofsoftswitch13" optional="False"/>
     </module>
-
     <!--  Bake specific dependencies -->
     <module name="mercurial">
       <source type="system_dependency">
