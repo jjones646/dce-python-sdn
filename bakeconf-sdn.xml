@@ -1841,25 +1841,15 @@
         <attribute name="module_directory" value="ns-3-sdn"/>
       </source>
       <build type="waf">
-        <attribute name="CXXFLAGS" value="" />
-        <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --with-ofswitch13=$INSTALLDIR --enable-examples --enable-tests --enable-mpi --enable-sdn" />
-        <attribute name="v_LD_LIBRARY" value="" />
-        <attribute name="LDFLAGS" value="" />
-        <attribute name="CC" value="" />
-        <attribute name="ignore_predefined_flags" value="False" />
-        <attribute name="build_arguments" value="" />
-        <attribute name="pre_installation" value="" />
-        <attribute name="patch" value="" />
-        <attribute name="CFLAGS" value="" />
-        <attribute name="CXX" value="" />
-        <attribute name="supported_os" value="" />
-        <attribute name="v_PATH" value="" />
-        <attribute name="no_installation" value="" />
-        <attribute name="new_variable" value="" />
-        <attribute name="objdir" value="yes" />
-        <attribute name="post_installation" value="" />
-        <attribute name="install_arguments" value="" />
-        <attribute name="v_PKG_CONFIG" value="" />
+        <attribute name="supported_os" value="linux;linux2"/>
+        <attribute name="CC" value=""/>
+        <attribute name="CXX" value=""/>
+        <attribute name="CFLAGS" value=""/>
+        <attribute name="CXXFLAGS" value=""/>
+        <attribute name="LDFLAGS" value=""/>
+        <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --enable-examples --enable-tests --enable-mpi --enable-sdn"/>
+        <attribute name="ignore_predefined_flags" value="False"/>
+        <attribute name="objdir" value="yes"/>
       </build>
       <depends_on name="netanim-3.106" optional="True" />
       <depends_on name="pybindgen-0.17.0.post41+ngd10fa60" optional="True" />
@@ -1916,7 +1906,7 @@
         <attribute name="patch" value="" />
         <attribute name="CFLAGS" value="" />
         <attribute name="CXX" value="" />
-        <attribute name="supported_os" value="linux;linux2" />
+        <attribute name="supported_os" value="linux;linux2"/>
         <attribute name="v_PATH" value="" />
         <attribute name="no_installation" value="" />
         <attribute name="new_variable" value="" />
@@ -1929,29 +1919,18 @@
       <depends_on name="net-next-sim-2.6.36" optional="False" />
       <depends_on name="iproute-2.6.38-fix-01" optional="False" />
     </module>
+
     <module name="netbee">
       <source type="git">
         <attribute name="url" value="https://github.com/jjones646/netbee.git"/>
         <attribute name="module_directory" value="netbee"/>
       </source>
       <build type="make" objdir="no">
-        <attribute name="CXXFLAGS" value="" />
-        <attribute name="build_arguments" value="" />
-        <attribute name="v_LD_LIBRARY" value="" />
-        <attribute name="LDFLAGS" value="" />
-        <attribute name="ignore_predefined_flags" value="False" />
-        <attribute name="configure_arguments" value="" />
-        <attribute name="pre_installation" value="cd $SRCDIR/src; cmake ." />
-        <attribute name="patch" value="" />
-        <attribute name="CFLAGS" value="" />
         <attribute name="supported_os" value="linux;linux2"/>
-        <attribute name="v_PATH" value="" />
-        <attribute name="no_installation" value="" />
-        <attribute name="new_variable" value="" />
-        <attribute name="objdir" value="yes" />
-        <attribute name="post_installation" value="" />
-        <attribute name="install_arguments" value="" />
-        <attribute name="v_PKG_CONFIG" value="" />
+        <attribute name="pre_installation" value="cd $SRCDIR/src; cmake ."/>
+        <attribute name="build_arguments" value="-C src/ -j"/>
+        <attribute name="post_installation" value="cp $SRCDIR/../bin/*.so $INSTALLDIR/lib/; cp $SRCDIR/../lib/*.so $INSTALLDIR/lib/"/>
+        <attribute name="v_LD_LIBRARY" value="$SRCDIR/../bin,$SRCDIR/../lib"/>
       </build>
       <depends_on name="g++" optional="False"/>
       <depends_on name="cmake" optional="False"/>
@@ -1960,6 +1939,29 @@
       <depends_on name="flex" optional="False"/>
       <depends_on name="bison" optional="False"/>
     </module>
+
+    <module name="ofsoftswitch13">
+      <source type="git">
+        <attribute name="url" value="https://github.com/ljerezchaves/ofsoftswitch13.git"/>
+        <attribute name="module_directory" value="ofsoftswitch13"/>
+        <attribute name="revision" value="ns3lib"/>
+      </source>
+      <build type="make" objdir="no">
+        <attribute name="supported_os" value="linux;linux2"/>
+        <attribute name="pre_installation" value="./boot.sh" />
+        <attribute name="configure_arguments" value="--enable-ns3-lib" />
+        <attribute name="build_arguments" value="-j"/>
+
+        <!-- TODO (Jon): get the compiled objects somewhere useful -->
+        <!-- <attribute name="post_installation" value="cp udatapath/ somewhere/"/> -->
+      </build>
+      <depends_on name="libpcap-dev" optional="False"/>
+      <depends_on name="libpcre3-dev" optional="False"/>
+      <depends_on name="flex" optional="False"/>
+      <depends_on name="bison" optional="False"/>
+      <depends_on name="netbee" optional="False"/>
+    </module>
+
     <module name="dce-sdn-1.7">
       <source type="git">
         <attribute name="url" value="https://github.com/jaredivey/ns-3-dce-1.7.git"/>
@@ -1979,18 +1981,20 @@
       <depends_on name="net-next-sim-2.6.36" optional="False"/>
       <depends_on name="Python-2.7.10" optional="True"/>
       <depends_on name="jdk8u" optional="True"/>
+      <depends_on name="netbee" optional="False"/>
+      <depends_on name="ofswitch13-module" optional="False"/>
       <depends_on name="iproute-2.6.38-fix-01" optional="False"/>
       <depends_on name="bash" optional="True"/>
       <build type="waf" objdir="build">
         <attribute name="supported_os" value="linux;linux2"/>
-        <attribute name="configure_arguments" value="configure --enable-mpi --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --with-libaspect=$INSTALLDIR --with-ofswitch13=$INSTALLDIR --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch --prefix=$INSTALLDIR"/>
+        <attribute name="configure_arguments" value="configure --enable-mpi --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --with-libaspect=$INSTALLDIR --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch --prefix=$INSTALLDIR"/>
         <attribute name="post_installation" value="mkdir $SRCDIR/files-0 ; ln -s $INSTALLDIR/lib/python2.7 $SRCDIR/files-0/ ; cp -r $SRCDIR/../pox $SRCDIR/files-0/ ; cp $SRCDIR/../ryu/bin/ryu-manager $SRCDIR/files-0/ ; cp -r $SRCDIR/../ryu/ryu $SRCDIR/files-0/; cp -r $SRCDIR/../ryu/etc $SRCDIR/files-0/ ; ln -s $INSTALLDIR/jvm/openjdk-1.8.0-internal $SRCDIR/files-0/ ; mkdir $SRCDIR/files-0/dummies ; cp -r $SRCDIR/myscripts/python/proc $SRCDIR/files-0/ ; cd $SRCDIR/myscripts/python/testscripts ; javac PiDigits.java ; cp PiDigits.class $SRCDIR/files-0/ "/>
       </build>
     </module>
     <module name="dce-sdn-cuda-1.7">
       <source type="git">
         <attribute name="url" value="https://github.com/jaredivey/ns-3-dce-1.7.git"/>
-        <attribute name="revision" value="cuda" />
+        <attribute name="revision" value="cuda"/>
         <attribute name="module_directory" value="ns-3-dce"/>
       </source>
       <!-- gVirtuS dependencies -->
@@ -2010,11 +2014,12 @@
       <depends_on name="net-next-sim-2.6.36" optional="False"/>
       <depends_on name="Python-2.7.10" optional="True"/>
       <depends_on name="jdk8u" optional="True"/>
+      <depends_on name="ofswitch13-module" optional="True"/>
       <depends_on name="iproute-2.6.38-fix-01" optional="False"/>
       <depends_on name="bash" optional="True"/>
       <build type="waf" objdir="build">
         <attribute name="supported_os" value="linux;linux2"/>
-        <attribute name="configure_arguments" value="configure --enable-mpi --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --with-libaspect=$INSTALLDIR --with-ofswitch13=$INSTALLDIR --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch --prefix=$INSTALLDIR"/>
+        <attribute name="configure_arguments" value="configure --enable-mpi --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --with-libaspect=$INSTALLDIR --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch --prefix=$INSTALLDIR"/>
         <attribute name="post_installation" value="mkdir $SRCDIR/files-0 ; ln -s $INSTALLDIR/lib/python2.7 $SRCDIR/files-0/ ; cp -r $SRCDIR/../pox $SRCDIR/files-0/ ; cp $SRCDIR/../ryu/bin/ryu-manager $SRCDIR/files-0/ ; cp -r $SRCDIR/../ryu/ryu $SRCDIR/files-0/; cp -r $SRCDIR/../ryu/etc $SRCDIR/files-0/ ; ln -s $INSTALLDIR/jvm/openjdk-1.8.0-internal $SRCDIR/files-0/ ; mkdir $SRCDIR/files-0/dummies ; cp -r $SRCDIR/myscripts/python/proc $SRCDIR/files-0/ ; cd $SRCDIR/myscripts/python/testscripts ; javac PiDigits.java ; cp PiDigits.class $SRCDIR/files-0/ ; echo '00000000000000000000000000000000' >> $SRCDIR/files-0/key.txt ; echo 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. (Filling up enough extra space to make the file a multiple of 16)' >> $SRCDIR/files-0/hello.txt ; mkdir files-1 ; echo '00000000000000000000000000000000' >> $SRCDIR/files-1/key.txt"/>
       </build>
     </module>
@@ -2083,6 +2088,23 @@
         <attribute name="no_installation" value="True"/>
         <attribute name="post_installation" value="mkdir -p $INSTALLDIR/bin_dce; cd $INSTALLDIR/bin_dce; cp $SRCDIR/liblinux.so ./"/>
       </build>
+    </module>
+    <module name="ofswitch13-module">
+      <source type="mercurial">
+        <attribute name="url" value="https://bitbucket.org/ljerezchaves/ofswitch13-module"/>
+        <attribute name="module_directory" value="ns-3-sdn/src/ofswitch13"/>
+        <attribute name="revision" value="2.0.2"/>
+      </source>
+      <build type="waf" objdir="no">
+        <attribute name="supported_os" value="linux;linux2"/>
+        <attribute name="configure_arguments" value="configure --with-ofswitch13=$SRCDIR --prefix=$INSTALLDIR"/>
+
+        <!-- TODO (Jon): Apply the patches before waf gets called -->
+        <!-- <attribute name="patch" value="$SRCDIR/utils/ofswitch13-csma-3_24_1.patch"/> -->
+        <!-- <attribute name="patch" value="$SRCDIR/utils/ofswitch13-doc-3_24_1.patch"/> -->
+      </build>
+      <depends_on name="ns-3-sdn-3.24" optional="False"/>
+      <depends_on name="ofsoftswitch13" optional="False"/>
     </module>
     <!--  Bake specific dependencies -->
     <module name="mercurial">
