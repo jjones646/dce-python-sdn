@@ -1929,8 +1929,8 @@
         <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --enable-examples --enable-tests --enable-mpi --enable-sdn"/>
         <attribute name="ignore_predefined_flags" value="False"/>
         <attribute name="objdir" value="yes"/>
-        <attribute name="patch" value="src/ofswitch13/utils/ofswitch13-csma-3_24_1.patch"/>
-        <attribute name="patch" value="src/ofswitch13/utils/ofswitch13-doc-3_24_1.patch"/>
+        <attribute name="patch" value="$SRCDIR/src/ofswitch13/utils/ofswitch13-csma-3_24_1.patch"/>
+        <attribute name="patch" value="$SRCDIR/src/ofswitch13/utils/ofswitch13-doc-3_24_1.patch"/>
       </build>
       <depends_on name="netanim-3.106" optional="True" />
       <depends_on name="pybindgen-0.17.0.post41+ngd10fa60" optional="True" />
@@ -2026,7 +2026,6 @@
       <depends_on name="jdk8u" optional="True"/>
       <depends_on name="iproute-2.6.38-fix-01" optional="False"/>
       <depends_on name="bash" optional="True"/>
-
       <build type="waf" objdir="build">
         <attribute name="supported_os" value="linux;linux2"/>
         <attribute name="configure_arguments" value="configure --enable-mpi --with-ns3=$INSTALLDIR --with-elf-loader=$INSTALLDIR/lib --with-libaspect=$INSTALLDIR --with-ofswitch13=$INSTALLDIR --enable-kernel-stack=$SRCDIR/../net-next-sim-2.6.36/arch --prefix=$INSTALLDIR"/>
