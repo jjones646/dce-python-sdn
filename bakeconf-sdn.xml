@@ -692,6 +692,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="pygoocanvas">
       <source type="system_dependency">
         <attribute name="dependency_test" value="goocanvasmodule.so or libgoocanvas.a"/>
@@ -704,6 +705,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="pyviz-prerequisites">
       <source type="none">
       </source>
@@ -713,6 +715,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="setuptools">
       <source type="system_dependency">
         <attribute name="post_download" value="" />
@@ -740,6 +743,7 @@
         <attribute name="v_PKG_CONFIG" value="" />
       </build>
     </module>
+
     <module name="pybindgen">
       <source type="git">
         <attribute name="fetch_option" value="" />
@@ -767,6 +771,7 @@
       <depends_on name="python-dev" optional="True" />
       <depends_on name="setuptools" optional="False" />
     </module>
+
     <module name="pybindgen-0.17.0.post41+ngd10fa60">
       <source type="git">
         <attribute name="fetch_option" value="" />
@@ -794,6 +799,7 @@
       <depends_on name="python-dev" optional="True" />
       <depends_on name="setuptools" optional="False" />
     </module>
+
     <module name="pybindgen-dev">
       <source type="bazaar">
         <attribute name="post_download" value=""/>
@@ -825,6 +831,7 @@
         <attribute name="v_PKG_CONFIG" value=""/>
       </build>
     </module>
+
     <module name="pybindgen-0.16.0.825">
       <source type="bazaar">
         <attribute name="url" value="https://launchpad.net/pybindgen"/>
@@ -835,6 +842,7 @@
         <attribute name="build_arguments" value="--generate-version"/>
       </build>
     </module>
+
     <module name="pybindgen-0.16.0.831">
       <source type="bazaar">
         <attribute name="url" value="https://launchpad.net/pybindgen"/>
@@ -845,6 +853,7 @@
         <attribute name="build_arguments" value="--generate-version"/>
       </build>
     </module>
+
     <module name="pybindgen-0.16.0.834">
       <source type="bazaar">
         <attribute name="url" value="https://launchpad.net/pybindgen"/>
@@ -855,6 +864,7 @@
         <attribute name="build_arguments" value="--generate-version"/>
       </build>
     </module>
+
     <module name="pybindgen-0.17.0.868">
       <source type="bazaar">
         <attribute name="url" value="https://launchpad.net/pybindgen"/>
@@ -865,6 +875,7 @@
         <attribute name="build_arguments" value="--generate-version"/>
       </build>
     </module>
+
     <module name="pybindgen-0.17.0.886">
       <source type="bazaar">
         <attribute name="url" value="https://launchpad.net/pybindgen"/>
@@ -875,6 +886,7 @@
         <attribute name="build_arguments" value="--generate-version"/>
       </build>
     </module>
+
     <module name="g++">
       <source type="system_dependency">
         <attribute name="dependency_test" value="g\+\+"/>
@@ -884,6 +896,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="nsc-dev">
       <source type="mercurial">
         <attribute name="url" value="https://secure.wand.net.nz/mercurial/nsc"/>
@@ -920,6 +933,7 @@
               return True</code>
       </build>
     </module>
+
     <module name="nsc-0.5.3">
       <source type="mercurial">
         <attribute name="url" value="https://secure.wand.net.nz/mercurial/nsc"/>
@@ -963,6 +977,7 @@
               return True</code>
       </build>
     </module>
+
     <module name="qt4">
       <source type="system_dependency">
         <attribute name="dependency_test" value="qobject.h and qapplication.h and (qmake or qmake-qt4)"/>
@@ -974,6 +989,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="libc">
       <source type="system_dependency">
         <attribute name="post_download" value="" />
@@ -1000,6 +1016,7 @@
         <attribute name="v_PKG_CONFIG" value="" />
       </build>
     </module>
+
     <module name="libc-debug">
       <source type="system_dependency">
         <!-- copy-pasted from elf-loader/extract-system-config.py -->
@@ -1013,6 +1030,7 @@
       <build type="none" objdir="no">
       </build>
     </module>
+
     <module name="elf-loader">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/thehajime/elf-loader"/>
@@ -1023,6 +1041,7 @@
         <attribute name="install_arguments" value="PREFIX=$INSTALLDIR"/>
       </build>
     </module>
+
     <module name="libaspect">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/thehajime/libaspect"/>
@@ -1031,6 +1050,7 @@
         <attribute name="install_arguments" value="PREFIX=$INSTALLDIR"/>
       </build>
     </module>
+
     <module name="netanim-dev">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/netanim"/>
@@ -1041,6 +1061,7 @@
       <depends_on name="qt4" optional="False"/>
       <depends_on name="g++" optional="False"/>
     </module>
+
     <module name="netanim-3.106">
       <source type="mercurial">
         <attribute name="post_download" value="" />
@@ -1072,6 +1093,7 @@
       <depends_on name="qt4" optional="False" />
       <depends_on name="g++" optional="False" />
     </module>
+
     <module name="netanim-3.103">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/netanim"/>
@@ -1083,6 +1105,7 @@
       <depends_on name="qt4" optional="False"/>
       <depends_on name="g++" optional="False"/>
     </module>
+
     <module name="netanim-3.104">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/netanim"/>
@@ -1094,6 +1117,7 @@
       <depends_on name="qt4" optional="False"/>
       <depends_on name="g++" optional="False"/>
     </module>
+
     <module name="netanim-3.105">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/netanim"/>
@@ -1105,6 +1129,7 @@
       <depends_on name="qt4" optional="False"/>
       <depends_on name="g++" optional="False"/>
     </module>
+
     <module name="ns-3-allinone">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dev"/>
@@ -1119,6 +1144,7 @@
         <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --enable-examples --enable-tests  --enable-mpi --with-nsclick=$SRCDIR/click-dev --with-pybindgen=$SRCDIR/pybindgen --with-openflow=$SRCDIR/openflow-dev --with-nsc=$SRCDIR/nsc-dev"/>
       </build>
     </module>
+
     <module name="ns-3-dev">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dev"/>
@@ -1130,6 +1156,7 @@
         <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --enable-examples --enable-tests --enable-mpi"/>
       </build>
     </module>
+
     <module name="ns-3.17">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3.17"/>
@@ -1141,6 +1168,7 @@
         <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --enable-examples --enable-tests --enable-mpi"/>
       </build>
     </module>
+
     <module name="ns-allinone-3.17">
       <source type="none"/>
       <depends_on name="netanim-3.103" optional="True"/>
@@ -1154,6 +1182,7 @@
       <depends_on name="ns-3.17" optional="False"/>
       <build type="none"/>
     </module>
+
     <module name="ns-3.18">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3.18"/>
@@ -1166,6 +1195,7 @@
         <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --enable-examples --enable-tests --enable-mpi"/>
       </build>
     </module>
+
     <module name="ns-3.18.1">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3.18"/>
@@ -1177,6 +1207,7 @@
         <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --enable-examples --enable-tests --enable-mpi"/>
       </build>
     </module>
+
     <module name="ns-3.19">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3.19"/>
@@ -1188,6 +1219,7 @@
         <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --enable-examples --enable-tests --enable-mpi"/>
       </build>
     </module>
+
     <module name="ns-3.20">
       <source type="mercurial">
         <attribute name="url" value="http://code.nsnam.org/ns-3-dev"/>
@@ -1199,6 +1231,7 @@
         <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --enable-examples --enable-tests --enable-mpi"/>
       </build>
     </module>
+
     <module name="ns-allinone-3.18">
       <source type="none"/>
       <depends_on name="netanim-3.103" optional="True"/>
@@ -1926,12 +1959,13 @@
       </source>
       <build type="waf">
         <attribute name="supported_os" value="linux;linux2"/>
-        <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --enable-examples --enable-tests --enable-mpi --enable-sdn --with-ofswitch13=$SRCDIR/ofsoftswitch13"/>
+        <attribute name="configure_arguments" value="configure --prefix=$INSTALLDIR --enable-examples --enable-tests --enable-mpi --enable-sdn --with-ofswitch13='$SRCDIR/../ofsoftswitch13'"/>
         <attribute name="ignore_predefined_flags" value="False"/>
         <attribute name="objdir" value="yes"/>
         <attribute name="patch" value="$SRCDIR/src/ofswitch13/utils/ofswitch13-csma-3_24_1.patch"/>
         <attribute name="patch" value="$SRCDIR/src/ofswitch13/utils/ofswitch13-doc-3_24_1.patch"/>
       </build>
+      <depends_on name="ofsoftswitch13" optional="False" />
       <depends_on name="ofswitch13-module" optional="False" />
       <depends_on name="netanim-3.106" optional="True" />
       <depends_on name="pybindgen-0.17.0.post41+ngd10fa60" optional="True" />
@@ -2021,7 +2055,6 @@
       <depends_on name="POX" optional="False"/>
       <depends_on name="ns-3-sdn-3.24" optional="False"/>
       <depends_on name="net-next-sim-2.6.36" optional="False"/>
-      <!-- <depends_on name="ofswitch13-module" optional="False"/> -->
       <depends_on name="Python-2.7.10" optional="True"/>
       <depends_on name="jdk8u" optional="True"/>
       <depends_on name="iproute-2.6.38-fix-01" optional="False"/>
@@ -2054,7 +2087,6 @@
       <depends_on name="POX" optional="False"/>
       <depends_on name="ns-3-sdn-3.24" optional="False"/>
       <depends_on name="net-next-sim-2.6.36" optional="False"/>
-      <!-- <depends_on name="ofswitch13-module" optional="False"/> -->
       <depends_on name="Python-2.7.10" optional="True"/>
       <depends_on name="jdk8u" optional="True"/>
       <depends_on name="iproute-2.6.38-fix-01" optional="False"/>
@@ -2149,8 +2181,8 @@
         <attribute name="supported_os" value="linux;linux2"/>
         <attribute name="pre_installation" value="cd $SRCDIR/src; cmake ."/>
         <attribute name="build_arguments" value="-C src -j"/>
-        <attribute name="post_installation" value="cp -r $SRCDIR/include/*.h $INSTALLDIR/include/netbee; cp $SRCDIR/bin/*.so $INSTALLDIR/lib"/>
-        <!-- <attribute name="post_installation" value="sudo cp -r $SRCDIR/include/*.h /usr/include; sudo cp $SRCDIR/bin/*.so /usr/local/lib &amp;&amp; sudo ldconfig"/> -->
+        <!-- <attribute name="post_installation" value="cp -r $SRCDIR/include/*.h $INSTALLDIR/include; cp $SRCDIR/bin/*.so $INSTALLDIR/lib"/> -->
+        <attribute name="post_installation" value="sudo cp -r $SRCDIR/include/*.h /usr/include; sudo cp $SRCDIR/bin/*.so /usr/local/lib &amp;&amp; sudo ldconfig"/>
       </build>
       <depends_on name="g++" optional="False"/>
       <depends_on name="flex" optional="False"/>
@@ -2168,8 +2200,8 @@
       </source>
       <build type="make">
         <attribute name="supported_os" value="linux;linux2"/>
-        <attribute name="pre_installation" value="cd $SRCDIR; ./boot.sh; 'CPPFLAGS=-I$INSTALLDIR/include -L$INSTALLDIR/lib' ./configure --exec-prefix=$INSTALLDIR --prefix=$INSTALLDIR --enable-ns3-lib"/>
-        <attribute name="build_arguments" value="-j"/>
+        <attribute name="pre_installation" value="CFLAGS='-I$INSTALLDIR/include -L$INSTALLDIR/lib' CPPFLAGS='-I$INSTALLDIR/include -L$INSTALLDIR/lib' ./boot.sh; CFLAGS='-I$INSTALLDIR/include -L$INSTALLDIR/lib' CPPFLAGS='-I$INSTALLDIR/include -L$INSTALLDIR/lib' ./configure --exec-prefix=$INSTALLDIR --prefix=$INSTALLDIR --enable-ns3-lib"/>
+        <attribute name="build_arguments" value="CFLAGS='-I$INSTALLDIR/include -L$INSTALLDIR/lib' CPPFLAGS='-I$INSTALLDIR/include -L$INSTALLDIR/lib' -j"/>
         <attribute name="no_installation" value="True"/>
         <!-- TODO (Jon): move the compiled library file somewhere? -->
         <!-- <attribute name="post_installation" value="cp udatapath/*.a somewhere/"/> -->
