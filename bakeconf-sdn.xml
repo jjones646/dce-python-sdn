@@ -2201,7 +2201,7 @@
       <build type="make">
         <attribute name="supported_os" value="linux;linux2"/>
         <attribute name="pre_installation" value="CFLAGS='-I$INSTALLDIR/include -L$INSTALLDIR/lib' CPPFLAGS='-I$INSTALLDIR/include -L$INSTALLDIR/lib' ./boot.sh; CFLAGS='-I$INSTALLDIR/include -L$INSTALLDIR/lib' CPPFLAGS='-I$INSTALLDIR/include -L$INSTALLDIR/lib' ./configure --exec-prefix=$INSTALLDIR --prefix=$INSTALLDIR --enable-ns3-lib"/>
-        <attribute name="build_arguments" value="CFLAGS='-I$INSTALLDIR/include -L$INSTALLDIR/lib' CPPFLAGS='-I$INSTALLDIR/include -L$INSTALLDIR/lib' -j"/>
+        <attribute name="build_arguments" value="CFLAGS='-I/usr/local/include -L/usr/local/lib' -j"/>
         <attribute name="no_installation" value="True"/>
         <!-- TODO (Jon): move the compiled library file somewhere? -->
         <!-- <attribute name="post_installation" value="cp udatapath/*.a somewhere/"/> -->

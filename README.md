@@ -30,7 +30,7 @@ It is recommended that a VM be used for testing and experimenting, particularly 
 
 1. Install dependencies for compiling the [OFSWITCH13](http://www.lrc.ic.unicamp.br/ofswitch13/) module:
   ```
-  sudo apt-get install libboost-dev libpcap-dev libxerces-c2-dev libpcre3-dev flex bison cmake
+  sudo apt-get install libboost-dev libpcap-dev libxerces-c2-dev libpcre3-dev libdb-dev libexpat-dev flex bison cmake
   ```
 
 1. Install readline library (for Python):
